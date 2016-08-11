@@ -485,7 +485,7 @@ else :
 tertiary_mass_final = solar_masses[tertiary_mass_semi_final] + tertiary_mass_variation
 
 print "System Type: " + str(stars_final) + " (3d: " + str(stars_result) + ")"
-print "System Age: " + str(star_age_final) + " Billion Years (3d: " + str(star_age_first_result) + ", 1d-1: " + str(star_age_second) + ", 1d-1: " + str(star_age_third) + ")"
+print "System Age: " + str(star_age_final) + " Billion Years (3d+3: " + str(star_age_first_result) + ", 1d-1: " + str(star_age_second) + ", 1d-1: " + str(star_age_third) + ")"
 if primary_temp_final != "Negligible" :
 	print "Primary Star: " + str(primary_mass_final) + " (" + str(solar_masses[primary_mass_semi]) + ") solar masses (3d: " + str(primary_mass_first_result) + ", 3d: " + str(primary_mass_second_result) + ")"
 	print "	Effective Temp: " + str(primary_temp_final) + "K; Luminosity: " + str(primary_lum_final) + "L; Stellar Radius: " + str(primary_radius) + "AU"
