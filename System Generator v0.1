@@ -211,7 +211,7 @@ star_age_final = base_age + star_age_a * star_age_second + star_age_b * star_age
 
 print "System Type: " + str(stars_final) + " (3d: " + str(stars_result) + ")"
 print "Primary Star: " + str(primary_mass_final) + " (" + str(solar_masses[primary_mass_semi]) + ") solar masses (3d: " + str(primary_mass_first_result) + ", 3d: " + str(primary_mass_second_result) + ")"
-print "System Age: " + str(star_age_final) + " Billion Years (3d: " + str(star_age_first_result) + ", 1d-1: " + str(star_age_second_result) + ", 1d-1: " + str(star_age_third_result) + ")"
+print "System Age: " + str(star_age_final) + " Billion Years (3d: " + str(star_age_first_result) + ", 1d-1: " + str(star_age_second) + ", 1d-1: " + str(star_age_third) + ")"
 
 if stars_final == "Binary" :
 	print "Secondary Star: " + str(secondary_mass_final) + " (" + str(solar_masses[secondary_mass_semi_final]) + ") solar masses (1d-1: " + str(secondary_mass_first) + ", " + str(secondary_mass_first) + "d: " + str(secondary_mass_semi - primary_mass_semi) + ")"
