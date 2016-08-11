@@ -366,10 +366,10 @@ else :
 	primary_lmin = 0.0012
 
 if star_age_final <= primary_mspan :
-	primary_lum_base = primary_lmin + ((star_age_final / primary_mspan) * (primary_lmax - primary_lmin))
-elif primary_mspan < star_age_final <= primary_mspan + primary_sspan :
+	primary_lum_base = (primary_lmin + ((star_age_final / primary_mspan) * (primary_lmax - primary_lmin)))
+elif (primary_mspan) < star_age_final <= (primary_mspan + primary_sspan) :
 	primary_lum_base = primary_lmax
-elif primary_mspan + primary_sspan < star_age_final <= primary_mspan + primary_sspan + primary_gspan :
+elif (primary_mspan + primary_sspan) < star_age_final <= (primary_mspan + primary_sspan + primary_gspan) :
 	primary_lum_base = primary_lmax * 25
 else :
 	primary_lum_base = 0.001
@@ -381,15 +381,15 @@ if primary_lum_base == 0.001 :
 else :
 	primary_lum_final = primary_lum_base * primary_lum_variation
 
-giant_temp_1 = random.randint(0, 5)
-giant_temp_2 = random.randint(0, 5)
+primary_giant_temp_1 = random.randint(0, 5)
+primary_giant_temp_2 = random.randint(0, 5)
 
 if star_age_final <= primary_mspan :
 	primary_temp_base = primary_temp
 elif primary_mspan < star_age_final <= primary_mspan + primary_sspan :
-	primary_temp_base = primary_temp - ((star_age_final / primary_sspan) * (primary_temp - 4800))
+	primary_temp_base = primary_temp - (((star_age_final - primary_mspan) / primary_sspan) * (primary_temp - 4800))
 elif primary_mspan + primary_sspan < star_age_final <= primary_mspan + primary_sspan + primary_sspan :
-	primary_temp_base = 3000 + (200 * (giant_temp_1 + giant_temp_2))
+	primary_temp_base = 3000 + (200 * (primary_giant_temp_1 + primary_giant_temp_2))
 else :
 	primary_temp_base = 0
 
@@ -446,6 +446,284 @@ elif secondary_mass_semi_final == 5 :
 else :
 	secondary_mass_variation = random.randint(-2, 2) * 0.01
 
+secondary_lmax = 0
+secondary_mspan = 0
+secondary_sspan = 0
+secondary_gspan = 0
+
+if secondary_mass_semi == 0 :
+	secondary_star_type = "A5"
+	secondary_temp = 8200
+	secondary_lmin = 16
+	secondary_lmax = 20
+	secondary_mspan = 1.3
+	secondary_sspan = 0.2
+	secondary_gspan = 0.1
+elif secondary_mass_semi == 1 :
+	secondary_star_type = "A6"
+	secondary_temp = 8000
+	secondary_lmin = 13
+	secondary_lmax = 16
+	secondary_mspan = 1.5
+	secondary_sspan = 0.2
+	secondary_gspan = 0.1
+elif secondary_mass_semi == 2 :
+	secondary_star_type = "A7"
+	secondary_temp = 7800
+	secondary_lmin = 11
+	secondary_lmax = 13
+	secondary_mspan = 1.8
+	secondary_sspan = 0.3
+	secondary_gspan = 0.2
+elif secondary_mass_semi == 3 :
+	secondary_star_type = "A9"
+	secondary_temp = 7500
+	secondary_lmin = 8.6
+	secondary_lmax = 10
+	secondary_mspan = 2.1
+	secondary_sspan = 0.3
+	secondary_gspan = 0.2
+elif secondary_mass_semi == 4 :
+	secondary_star_type = "F0"
+	secondary_temp = 7300
+	secondary_lmin = 6.7
+	secondary_lmax = 8.2
+	secondary_mspan = 2.5
+	secondary_sspan = 0.4
+	secondary_gspan = 0.2
+elif secondary_mass_semi == 5 :
+	secondary_star_type = "F2"
+	secondary_temp = 7000
+	secondary_lmin = 5.1
+	secondary_lmax = 6.5
+	secondary_mspan = 3.0
+	secondary_sspan = 0.5
+	secondary_gspan = 0.3
+elif secondary_mass_semi == 6 :
+	secondary_star_type = "F3"
+	secondary_temp = 6900
+	secondary_lmin = 4.3
+	secondary_lmax = 5.7
+	secondary_mspan = 3.3
+	secondary_sspan = 0.5
+	secondary_gspan = 0.3
+elif secondary_mass_semi == 7 :
+	secondary_star_type = "F4"
+	secondary_temp = 6700
+	secondary_lmin = 3.7
+	secondary_lmax = 5.1
+	secondary_mspan = 3.7
+	secondary_sspan = 0.6
+	secondary_gspan = 0.4
+elif secondary_mass_semi == 8 :
+	secondary_star_type = "F5"
+	secondary_temp = 6600
+	secondary_lmin = 3.1
+	secondary_lmax = 4.5
+	secondary_mspan = 4.1
+	secondary_sspan = 0.6
+	secondary_gspan = 0.4
+elif secondary_mass_semi == 9 :
+	secondary_star_type = "F6"
+	secondary_temp = 6500
+	secondary_lmin = 2.5
+	secondary_lmax = 3.9
+	secondary_mspan = 4.6
+	secondary_sspan = 0.7
+	secondary_gspan = 0.4
+elif secondary_mass_semi == 10 :
+	secondary_star_type = "F7"
+	secondary_temp = 6400
+	secondary_lmin = 2.1
+	secondary_lmax = 3.5
+	secondary_mspan = 5.2
+	secondary_sspan = 0.8
+	secondary_gspan = 0.5
+elif secondary_mass_semi == 11 :
+	secondary_star_type = "F8"
+	secondary_temp = 6300
+	secondary_lmin = 1.7
+	secondary_lmax = 3.0
+	secondary_mspan = 5.9
+	secondary_sspan = 0.9
+	secondary_gspan = 0.6
+elif secondary_mass_semi == 12 :
+	secondary_star_type = "F9"
+	secondary_temp = 6100
+	secondary_lmin = 1.4
+	secondary_lmax = 2.6
+	secondary_mspan = 6.7
+	secondary_sspan = 1.0
+	secondary_gspan = 0.6
+elif secondary_mass_semi == 13 :
+	secondary_star_type = "G0"
+	secondary_temp = 6000
+	secondary_lmin = 1.1
+	secondary_lmax = 2.2
+	secondary_mspan = 7.7
+	secondary_sspan = 1.2
+	secondary_gspan = 0.7
+elif secondary_mass_semi == 14 :
+	secondary_star_type = "G1"
+	secondary_temp = 5900
+	secondary_lmin = 0.87
+	secondary_lmax = 1.9
+	secondary_mspan = 8.8
+	secondary_sspan = 1.4
+	secondary_gspan = 0.8
+elif secondary_mass_semi == 15 :
+	secondary_star_type = "G2"
+	secondary_temp = 5800
+	secondary_lmin = 0.68
+	secondary_lmax = 1.6
+	secondary_mspan = 10
+	secondary_sspan = 1.6
+	secondary_gspan = 1.0
+elif secondary_mass_semi == 16 :
+	secondary_star_type = "G4"
+	secondary_temp = 5700
+	secondary_lmin = 0.56
+	secondary_lmax = 1.3
+	secondary_mspan = 12
+	secondary_sspan = 1.8
+	secondary_gspan = 1.1
+elif secondary_mass_semi == 17 :
+	secondary_star_type = "G6"
+	secondary_temp = 5500
+	secondary_lmin = 0.45
+	secondary_lmax = 1.0
+	secondary_mspan = 14
+elif secondary_mass_semi == 18 :
+	secondary_star_type = "G8"
+	secondary_temp = 5400
+	secondary_lmin = 0.36
+	secondary_lmax = 0.84
+	secondary_mspan = 17
+elif secondary_mass_semi == 19 :
+	secondary_star_type = "K0"
+	secondary_temp = 5200
+	secondary_lmin = 0.28
+	secondary_lmax = 0.65
+	secondary_mspan = 20
+elif secondary_mass_semi == 20 :
+	secondary_star_type = "K2"
+	secondary_temp = 4900
+	secondary_lmin = 0.23
+	secondary_lmax = 0.48
+	secondary_mspan = 24
+elif secondary_mass_semi == 21 :
+	secondary_star_type = "K4"
+	secondary_temp = 4600
+	secondary_lmin = 0.19
+	secondary_lmax = 0.35
+	secondary_mspan = 30
+elif secondary_mass_semi == 22 :
+	secondary_star_type = "K5"
+	secondary_temp = 4400
+	secondary_lmin = 0.15
+	secondary_lmax = 0.25
+	secondary_mspan = 37
+elif secondary_mass_semi == 23 :
+	secondary_star_type = "K6"
+	secondary_temp = 4200
+	secondary_lmin = 0.13
+	secondary_lmax = 0.20
+	secondary_mspan = 42
+elif secondary_mass_semi == 24 :
+	secondary_star_type = "K8"
+	secondary_temp = 4000
+	secondary_lmin = 0.11
+	secondary_lmax = 0.15
+	secondary_mspan = 50
+elif secondary_mass_semi == 25 :
+	secondary_star_type = "M0"
+	secondary_temp = 3800
+	secondary_lmin = 0.09
+	secondary_lmax = 0.11
+	secondary_mspan = 59
+elif secondary_mass_semi == 26 :
+	secondary_star_type = "M1"
+	secondary_temp = 3600
+	secondary_lmin = 0.07
+	secondary_lmax = 0.08
+	secondary_mspan = 70
+elif secondary_mass_semi == 27 :
+	secondary_star_type = "M2"
+	secondary_temp = 3500
+	secondary_lmin = 0.054
+elif secondary_mass_semi == 28 :
+	secondary_star_type = "M3"
+	secondary_temp = 3400
+	secondary_lmin = 0.037
+elif secondary_mass_semi == 29 :
+	secondary_star_type = "M4"
+	secondary_temp = 3300
+	secondary_lmin = 0.024
+elif secondary_mass_semi == 30 :
+	secondary_star_type = "M4"
+	secondary_temp = 3300
+	secondary_lmin = 0.015
+elif secondary_mass_semi == 31 :
+	secondary_star_type = "M5"
+	secondary_temp = 3200
+	secondary_lmin = 0.0079
+elif secondary_mass_semi == 32 :
+	secondary_star_type = "M6"
+	secondary_temp = 3200
+	secondary_lmin = 0.0036
+else :
+	secondary_star_type = "M7"
+	secondary_temp = 3100
+	secondary_lmin = 0.0012
+
+if star_age_final <= secondary_mspan :
+	secondary_lum_base = secondary_lmin + ((star_age_final / secondary_mspan) * (secondary_lmax - secondary_lmin))
+elif secondary_mspan < star_age_final <= secondary_mspan + secondary_sspan :
+	secondary_lum_base = secondary_lmax
+elif secondary_mspan + secondary_sspan < star_age_final <= secondary_mspan + secondary_sspan + secondary_gspan :
+	secondary_lum_base = secondary_lmax * 25
+else :
+	secondary_lum_base = 0.001
+
+secondary_lum_variation = random.randint(90, 110) * 0.01
+
+if secondary_lum_base == 0.001 :
+	secondary_lum_final = "Negligible"
+else :
+	secondary_lum_final = secondary_lum_base * secondary_lum_variation
+
+giant_temp_1 = random.randint(0, 5)
+giant_temp_2 = random.randint(0, 5)
+
+if star_age_final <= secondary_mspan :
+	secondary_temp_base = secondary_temp
+elif secondary_mspan < star_age_final <= secondary_mspan + secondary_sspan :
+	secondary_temp_base = secondary_temp - ((star_age_final / secondary_sspan) * (secondary_temp - 4800))
+elif secondary_mspan + secondary_sspan < star_age_final <= secondary_mspan + secondary_sspan + secondary_sspan :
+	secondary_temp_base = 3000 + (200 * (giant_temp_1 + giant_temp_2))
+else :
+	secondary_temp_base = 0
+
+if secondary_temp_base == 0 :
+	secondary_temp_final = "Negligible"
+else :
+	secondary_temp_final = secondary_temp_base + random.randint(-100, 100)
+
+secondary_dwarf_mass_1 = random.randint(0, 5)
+secondary_dwarf_mass_2 = random.randint(0, 5)
+
+if secondary_mspan + secondary_sspan + secondary_gspan < star_age_final :
+	secondary_mass_semi = 17 - (secondary_dwarf_mass_1 + secondary_dwarf_mass_2)
+else :
+	secondary_mass_semi = secondary_mass_semi
+
+secondary_mass_final = solar_masses[secondary_mass_semi] + secondary_mass_variation
+
+if secondary_temp_final == "Negligible" :
+	secondary_radius = "Negligible"
+else :
+	secondary_radius = (155000 * secondary_lum_final**0.5) / secondary_temp_final**2
+
 secondary_mass_final = solar_masses[secondary_mass_semi_final] + secondary_mass_variation
 
 tertiary_mass_first = random.randint(0, 5)
@@ -480,6 +758,284 @@ elif tertiary_mass_semi_final == 5 :
 	tertiary_mass_variation = random.randint(-2, 4) * 0.01
 else :
 	tertiary_mass_variation = random.randint(-2, 2) * 0.01
+
+tertiary_lmax = 0
+tertiary_mspan = 0
+tertiary_sspan = 0
+tertiary_gspan = 0
+
+if tertiary_mass_semi == 0 :
+	tertiary_star_type = "A5"
+	tertiary_temp = 8200
+	tertiary_lmin = 16
+	tertiary_lmax = 20
+	tertiary_mspan = 1.3
+	tertiary_sspan = 0.2
+	tertiary_gspan = 0.1
+elif tertiary_mass_semi == 1 :
+	tertiary_star_type = "A6"
+	tertiary_temp = 8000
+	tertiary_lmin = 13
+	tertiary_lmax = 16
+	tertiary_mspan = 1.5
+	tertiary_sspan = 0.2
+	tertiary_gspan = 0.1
+elif tertiary_mass_semi == 2 :
+	tertiary_star_type = "A7"
+	tertiary_temp = 7800
+	tertiary_lmin = 11
+	tertiary_lmax = 13
+	tertiary_mspan = 1.8
+	tertiary_sspan = 0.3
+	tertiary_gspan = 0.2
+elif tertiary_mass_semi == 3 :
+	tertiary_star_type = "A9"
+	tertiary_temp = 7500
+	tertiary_lmin = 8.6
+	tertiary_lmax = 10
+	tertiary_mspan = 2.1
+	tertiary_sspan = 0.3
+	tertiary_gspan = 0.2
+elif tertiary_mass_semi == 4 :
+	tertiary_star_type = "F0"
+	tertiary_temp = 7300
+	tertiary_lmin = 6.7
+	tertiary_lmax = 8.2
+	tertiary_mspan = 2.5
+	tertiary_sspan = 0.4
+	tertiary_gspan = 0.2
+elif tertiary_mass_semi == 5 :
+	tertiary_star_type = "F2"
+	tertiary_temp = 7000
+	tertiary_lmin = 5.1
+	tertiary_lmax = 6.5
+	tertiary_mspan = 3.0
+	tertiary_sspan = 0.5
+	tertiary_gspan = 0.3
+elif tertiary_mass_semi == 6 :
+	tertiary_star_type = "F3"
+	tertiary_temp = 6900
+	tertiary_lmin = 4.3
+	tertiary_lmax = 5.7
+	tertiary_mspan = 3.3
+	tertiary_sspan = 0.5
+	tertiary_gspan = 0.3
+elif tertiary_mass_semi == 7 :
+	tertiary_star_type = "F4"
+	tertiary_temp = 6700
+	tertiary_lmin = 3.7
+	tertiary_lmax = 5.1
+	tertiary_mspan = 3.7
+	tertiary_sspan = 0.6
+	tertiary_gspan = 0.4
+elif tertiary_mass_semi == 8 :
+	tertiary_star_type = "F5"
+	tertiary_temp = 6600
+	tertiary_lmin = 3.1
+	tertiary_lmax = 4.5
+	tertiary_mspan = 4.1
+	tertiary_sspan = 0.6
+	tertiary_gspan = 0.4
+elif tertiary_mass_semi == 9 :
+	tertiary_star_type = "F6"
+	tertiary_temp = 6500
+	tertiary_lmin = 2.5
+	tertiary_lmax = 3.9
+	tertiary_mspan = 4.6
+	tertiary_sspan = 0.7
+	tertiary_gspan = 0.4
+elif tertiary_mass_semi == 10 :
+	tertiary_star_type = "F7"
+	tertiary_temp = 6400
+	tertiary_lmin = 2.1
+	tertiary_lmax = 3.5
+	tertiary_mspan = 5.2
+	tertiary_sspan = 0.8
+	tertiary_gspan = 0.5
+elif tertiary_mass_semi == 11 :
+	tertiary_star_type = "F8"
+	tertiary_temp = 6300
+	tertiary_lmin = 1.7
+	tertiary_lmax = 3.0
+	tertiary_mspan = 5.9
+	tertiary_sspan = 0.9
+	tertiary_gspan = 0.6
+elif tertiary_mass_semi == 12 :
+	tertiary_star_type = "F9"
+	tertiary_temp = 6100
+	tertiary_lmin = 1.4
+	tertiary_lmax = 2.6
+	tertiary_mspan = 6.7
+	tertiary_sspan = 1.0
+	tertiary_gspan = 0.6
+elif tertiary_mass_semi == 13 :
+	tertiary_star_type = "G0"
+	tertiary_temp = 6000
+	tertiary_lmin = 1.1
+	tertiary_lmax = 2.2
+	tertiary_mspan = 7.7
+	tertiary_sspan = 1.2
+	tertiary_gspan = 0.7
+elif tertiary_mass_semi == 14 :
+	tertiary_star_type = "G1"
+	tertiary_temp = 5900
+	tertiary_lmin = 0.87
+	tertiary_lmax = 1.9
+	tertiary_mspan = 8.8
+	tertiary_sspan = 1.4
+	tertiary_gspan = 0.8
+elif tertiary_mass_semi == 15 :
+	tertiary_star_type = "G2"
+	tertiary_temp = 5800
+	tertiary_lmin = 0.68
+	tertiary_lmax = 1.6
+	tertiary_mspan = 10
+	tertiary_sspan = 1.6
+	tertiary_gspan = 1.0
+elif tertiary_mass_semi == 16 :
+	tertiary_star_type = "G4"
+	tertiary_temp = 5700
+	tertiary_lmin = 0.56
+	tertiary_lmax = 1.3
+	tertiary_mspan = 12
+	tertiary_sspan = 1.8
+	tertiary_gspan = 1.1
+elif tertiary_mass_semi == 17 :
+	tertiary_star_type = "G6"
+	tertiary_temp = 5500
+	tertiary_lmin = 0.45
+	tertiary_lmax = 1.0
+	tertiary_mspan = 14
+elif tertiary_mass_semi == 18 :
+	tertiary_star_type = "G8"
+	tertiary_temp = 5400
+	tertiary_lmin = 0.36
+	tertiary_lmax = 0.84
+	tertiary_mspan = 17
+elif tertiary_mass_semi == 19 :
+	tertiary_star_type = "K0"
+	tertiary_temp = 5200
+	tertiary_lmin = 0.28
+	tertiary_lmax = 0.65
+	tertiary_mspan = 20
+elif tertiary_mass_semi == 20 :
+	tertiary_star_type = "K2"
+	tertiary_temp = 4900
+	tertiary_lmin = 0.23
+	tertiary_lmax = 0.48
+	tertiary_mspan = 24
+elif tertiary_mass_semi == 21 :
+	tertiary_star_type = "K4"
+	tertiary_temp = 4600
+	tertiary_lmin = 0.19
+	tertiary_lmax = 0.35
+	tertiary_mspan = 30
+elif tertiary_mass_semi == 22 :
+	tertiary_star_type = "K5"
+	tertiary_temp = 4400
+	tertiary_lmin = 0.15
+	tertiary_lmax = 0.25
+	tertiary_mspan = 37
+elif tertiary_mass_semi == 23 :
+	tertiary_star_type = "K6"
+	tertiary_temp = 4200
+	tertiary_lmin = 0.13
+	tertiary_lmax = 0.20
+	tertiary_mspan = 42
+elif tertiary_mass_semi == 24 :
+	tertiary_star_type = "K8"
+	tertiary_temp = 4000
+	tertiary_lmin = 0.11
+	tertiary_lmax = 0.15
+	tertiary_mspan = 50
+elif tertiary_mass_semi == 25 :
+	tertiary_star_type = "M0"
+	tertiary_temp = 3800
+	tertiary_lmin = 0.09
+	tertiary_lmax = 0.11
+	tertiary_mspan = 59
+elif tertiary_mass_semi == 26 :
+	tertiary_star_type = "M1"
+	tertiary_temp = 3600
+	tertiary_lmin = 0.07
+	tertiary_lmax = 0.08
+	tertiary_mspan = 70
+elif tertiary_mass_semi == 27 :
+	tertiary_star_type = "M2"
+	tertiary_temp = 3500
+	tertiary_lmin = 0.054
+elif tertiary_mass_semi == 28 :
+	tertiary_star_type = "M3"
+	tertiary_temp = 3400
+	tertiary_lmin = 0.037
+elif tertiary_mass_semi == 29 :
+	tertiary_star_type = "M4"
+	tertiary_temp = 3300
+	tertiary_lmin = 0.024
+elif tertiary_mass_semi == 30 :
+	tertiary_star_type = "M4"
+	tertiary_temp = 3300
+	tertiary_lmin = 0.015
+elif tertiary_mass_semi == 31 :
+	tertiary_star_type = "M5"
+	tertiary_temp = 3200
+	tertiary_lmin = 0.0079
+elif tertiary_mass_semi == 32 :
+	tertiary_star_type = "M6"
+	tertiary_temp = 3200
+	tertiary_lmin = 0.0036
+else :
+	tertiary_star_type = "M7"
+	tertiary_temp = 3100
+	tertiary_lmin = 0.0012
+
+if star_age_final <= tertiary_mspan :
+	tertiary_lum_base = tertiary_lmin + ((star_age_final / tertiary_mspan) * (tertiary_lmax - tertiary_lmin))
+elif tertiary_mspan < star_age_final <= tertiary_mspan + tertiary_sspan :
+	tertiary_lum_base = tertiary_lmax
+elif tertiary_mspan + tertiary_sspan < star_age_final <= tertiary_mspan + tertiary_sspan + tertiary_gspan :
+	tertiary_lum_base = tertiary_lmax * 25
+else :
+	tertiary_lum_base = 0.001
+
+tertiary_lum_variation = random.randint(90, 110) * 0.01
+
+if tertiary_lum_base == 0.001 :
+	tertiary_lum_final = "Negligible"
+else :
+	tertiary_lum_final = tertiary_lum_base * tertiary_lum_variation
+
+giant_temp_1 = random.randint(0, 5)
+giant_temp_2 = random.randint(0, 5)
+
+if star_age_final <= tertiary_mspan :
+	tertiary_temp_base = tertiary_temp
+elif tertiary_mspan < star_age_final <= tertiary_mspan + tertiary_sspan :
+	tertiary_temp_base = tertiary_temp - ((star_age_final / tertiary_sspan) * (tertiary_temp - 4800))
+elif tertiary_mspan + tertiary_sspan < star_age_final <= tertiary_mspan + tertiary_sspan + tertiary_sspan :
+	tertiary_temp_base = 3000 + (200 * (giant_temp_1 + giant_temp_2))
+else :
+	tertiary_temp_base = 0
+
+if tertiary_temp_base == 0 :
+	tertiary_temp_final = "Negligible"
+else :
+	tertiary_temp_final = tertiary_temp_base + random.randint(-100, 100)
+
+tertiary_dwarf_mass_1 = random.randint(0, 5)
+tertiary_dwarf_mass_2 = random.randint(0, 5)
+
+if tertiary_mspan + tertiary_sspan + tertiary_gspan < star_age_final :
+	tertiary_mass_semi = 17 - (tertiary_dwarf_mass_1 + tertiary_dwarf_mass_2)
+else :
+	tertiary_mass_semi = tertiary_mass_semi
+
+tertiary_mass_final = solar_masses[tertiary_mass_semi] + tertiary_mass_variation
+
+if tertiary_temp_final == "Negligible" :
+	tertiary_radius = "Negligible"
+else :
+	tertiary_radius = (155000 * tertiary_lum_final**0.5) / tertiary_temp_final**2
 
 tertiary_mass_final = solar_masses[tertiary_mass_semi_final] + tertiary_mass_variation
 
