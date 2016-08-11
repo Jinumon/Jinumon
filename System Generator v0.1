@@ -135,8 +135,6 @@ elif primary_mass_semi == 5 :
 else :
 	primary_mass_variation = random.randint(-2, 2) * 0.01
 
-primary_mass_final = solar_masses[primary_mass_semi] + primary_mass_variation
-
 primary_lmax = 0
 primary_mspan = 0
 primary_sspan = 0
@@ -402,12 +400,13 @@ else :
 
 primary_dwarf_mass_1 = random.randint(0, 5)
 primary_dwarf_mass_2 = random.randint(0, 5)
-primary_dwarf_variation = random.randint(-2, 2) * 0.01
 
 if primary_mspan + primary_sspan + primary_gspan < star_age_final :
-	primary_mass_final = 0.9 + primary_dwarf_variation + (0.05 * (primary_dwarf_mass_1 + primary_dwarf_mass_2))
+	primary_mass_semi = 17 - (primary_dwarf_mass_1 + primary_dwarf_mass_2)
 else :
-	primary_mass_final = primary_mass_final
+	primary_mass_semi = primary_mass_semi
+
+primary_mass_final = solar_masses[primary_mass_semi] + primary_mass_variation
 
 if primary_temp_final == "Negligible" :
 	primary_radius = "Negligible"
