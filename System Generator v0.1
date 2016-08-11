@@ -137,6 +137,11 @@ else :
 
 primary_mass_final = solar_masses[primary_mass_semi] + primary_mass_variation
 
+primary_lmax = 0
+primary_mspan = 0
+primary_sspan = 0
+primary_gspan = 0
+
 if primary_mass_semi == 0 :
 	primary_star_type = "A5"
 	primary_temp = 8200
@@ -357,18 +362,10 @@ elif primary_mass_semi == 32 :
 	primary_star_type = "M6"
 	primary_temp = 3200
 	primary_lmin = 0.0036
-elif primary_mass_semi == 33 :
+else :
 	primary_star_type = "M7"
 	primary_temp = 3100
 	primary_lmin = 0.0012
-elif primary_mass_semi <= 27 :
-	primary_lmax = 0
-	primary_mspan = 0
-elif primary_mass_semi <= 17 :
-	primary_sspan = 0
-	primary_gspan = 0
-else :
-	primary_sspan = 0
 
 if star_age_final <= primary_mspan :
 	primary_lum_base = primary_lmin + ((star_age_final / primary_mspan) * (primary_lmax - primary_lmin))
@@ -394,9 +391,14 @@ if star_age_final <= primary_mspan :
 elif primary_mspan < star_age_final <= primary_mspan + primary_sspan :
 	primary_temp_base = primary_temp - ((star_age_final / primary_sspan) * (primary_temp - 4800))
 elif primary_mspan + primary_sspan < star_age_final <= primary_mspan + primary_sspan + primary_sspan :
-	primary_temp_base = 3000 + (200 * (giant_temp_1 + gian_temp_2))
+	primary_temp_base = 3000 + (200 * (giant_temp_1 + giant_temp_2))
 else :
+	primary_temp_base = 0
+
+if primary_temp_base == 0 :
 	primary_temp_final = "Negligible"
+else :
+	primary_temp_final = primary_temp_base + random.randint(-100, 100)
 
 primary_dwarf_mass_1 = random.randint(0, 5)
 primary_dwarf_mass_2 = random.randint(0, 5)
@@ -484,8 +486,12 @@ tertiary_mass_final = solar_masses[tertiary_mass_semi_final] + tertiary_mass_var
 
 print "System Type: " + str(stars_final) + " (3d: " + str(stars_result) + ")"
 print "System Age: " + str(star_age_final) + " Billion Years (3d: " + str(star_age_first_result) + ", 1d-1: " + str(star_age_second) + ", 1d-1: " + str(star_age_third) + ")"
-print "Primary Star: " + str(primary_mass_final) + " (" + str(solar_masses[primary_mass_semi]) + ") solar masses (3d: " + str(primary_mass_first_result) + ", 3d: " + str(primary_mass_second_result) + ")"
-print "Effective Temp: " + str(primary_temp_final) + "K; Luminosity: " + str(primary_lum_final) + "L; Radius: " + str(primary_radius) + "AU"
+if primary_temp_final != "Negligible" :
+	print "Primary Star: " + str(primary_mass_final) + " (" + str(solar_masses[primary_mass_semi]) + ") solar masses (3d: " + str(primary_mass_first_result) + ", 3d: " + str(primary_mass_second_result) + ")"
+	print "	Effective Temp: " + str(primary_temp_final) + "K; Luminosity: " + str(primary_lum_final) + "L; Stellar Radius: " + str(primary_radius) + "AU"
+else :
+	print "Primary Star: " + str(primary_mass_final) + " solar masses (White Dwarf)"
+	print "	Effective Temp: Negligible; Luminosity: Negligible; Stellar Radius: Negligible"
 
 if stars_final == "Binary" :
 	print "Secondary Star: " + str(secondary_mass_final) + " (" + str(solar_masses[secondary_mass_semi_final]) + ") solar masses (1d-1: " + str(secondary_mass_first) + ", " + str(secondary_mass_first) + "d: " + str(secondary_mass_semi - primary_mass_semi) + ")"
