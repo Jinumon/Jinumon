@@ -362,19 +362,19 @@ else primary_mass_semi == 33 :
 	primary_temp = 3100
 	primary_lmin = 0.0012
 
-if primary_mass_semi <= 27 :
-	primary_lmax = 0
-	primary_mspan = 0
-else :
+if primary_mass_semi > 27 :
 	primary_lmax = primary_lmax
 	primary_mspan = primary_mspan
-
-if primary_mass_semi <= 17 :
-	primary_sspan = 0
-	primary_gspan = 0
 else :
+	primary_lmax = 0
+	primary_mspan = 0
+
+if primary_mass_semi > 17 :
 	primary_sspan = primary_sspan
 	primary_gspan = primary_gspan
+else :
+	primary_sspan = 0
+	primary_gspan = 0
 
 if star_age_final <= primary_mspan :
 	primary_lum_base = primary_lmin + ((star_age_final / primary_mspan) * (primary_lmax - primary_lmin))
@@ -413,9 +413,10 @@ if primary_mspan + primary_sspan + primary_gspan < star_age_final :
 else :
 	primary_mass_final = primary_mass_final
 
-if primary_temp_final = "Negligible" :
+if primary_temp_final == "Negligible" :
 	primary_radius = "Negligible"
-else : primary_radius = (155000 * primary_lum_final**0.5) / primary_temp_final**2
+else :
+	primary_radius = (155000 * primary_lum_final**0.5) / primary_temp_final**2
 
 secondary_mass_first = random.randint(0, 5)
 
