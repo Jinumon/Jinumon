@@ -392,6 +392,20 @@ if primary_lum_base == 0.001 :
 else :
 	primary_lum_final = primary_lum_base * primary_lum_variation
 
+giant_temp_1 = random.randint(0, 5)
+giant_temp_2 = random.randint(0, 5)
+
+if star_age_final <= primary_mspan :
+	primary_temp_base = primary_temp
+elif primary_mspan < star_age_final <= primary_mspan + primary_sspan :
+	primary_temp_base = primary_temp - ((star_age_final / primary_sspan) * (primary_temp - 4800))
+elif primary_mspan + primary_sspan < star_age_final <= primary_mspan + primary_sspan + primary_sspan :
+	primary_temp_base = 3000 + (200 * (giant_temp_1 + gian_temp_2))
+else :
+	primary_temp_final = "Neglible"
+
+
+
 secondary_mass_first = random.randint(0, 5)
 
 secondary_mass_second_1 = random.randint(1, 6)
