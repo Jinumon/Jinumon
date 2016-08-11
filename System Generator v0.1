@@ -182,8 +182,10 @@ print "Primary Star: " + str(primary_mass_final) + " (" + str(solar_masses[prima
 
 if stars_final == "Binary" :
 	print "Secondary Star: " + str(secondary_mass_final) + " (" + str(solar_masses[secondary_mass_semi_final]) + ") solar masses (1d-1: " + str(secondary_mass_first) + ", " + str(secondary_mass_first) + "d: " + str(secondary_mass_semi - primary_mass_semi) + ")"
+	print ""
 elif stars_final == "Trinary" :
 	print "Secondary Star: " + str(secondary_mass_final) + " (" + str(solar_masses[secondary_mass_semi_final]) + ") solar masses (1d-1: " + str(secondary_mass_first) + ", " + str(secondary_mass_first) + "d: " + str(secondary_mass_semi - primary_mass_semi) + ")"
 	print "Tertiary Star: " + str(tertiary_mass_final) + " (" + str(solar_masses[tertiary_mass_semi_final]) + ") solar masses (1d-1: " + str(tertiary_mass_first) + ", " + str(tertiary_mass_first) + "d: " + str(tertiary_mass_semi - primary_mass_semi) + ")"
+	print ""
 else :
 	print ""
