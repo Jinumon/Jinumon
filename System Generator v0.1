@@ -1,0 +1,189 @@
+import random
+
+stars_1 = random.randint(1, 6)
+stars_2 = random.randint(1, 6)
+stars_3 = random.randint(1, 6)
+
+stars_result = stars_1 + stars_2 + stars_3 + 3
+
+if stars_result <= 10 :
+	stars_final = "Singular"
+
+elif stars_result >= 16 :
+	stars_final = "Trinary"
+
+else :
+	stars_final = "Binary"
+
+primary_mass_first_1 = random.randint(1, 6)
+primary_mass_first_2 = random.randint(1, 6)
+primary_mass_first_3 = random.randint(1, 6)
+
+primary_mass_first_result = primary_mass_first_1 + primary_mass_first_2 + primary_mass_first_3
+
+primary_mass_second_1 = random.randint(1, 6)
+primary_mass_second_2 = random.randint(1, 6)
+primary_mass_second_3 = random.randint(1, 6)
+
+primary_mass_second_result = primary_mass_second_1 + primary_mass_second_2 + primary_mass_second_3
+
+solar_masses = 2.00, 1.90, 1.80, 1.70, 1.60, 1.50, 1.45, 1.40, 1.35, 1.30, 1.25, 1.20, 1.15, 1.10, 1.05, 1.00, 0.95, 0.90, 0.85, 0.80, 0.75, 0.70, 0.65, 0.60, 0.55, 0.50, 0.45, 0.40, 0.35, 0.30, 0.25, 0.20, 0.15, 0.10
+
+if primary_mass_first_result == 3 and primary_mass_second_result <= 10 :
+	primary_mass_semi = 0
+elif primary_mass_first_result == 3 and primary_mass_second_result > 10 :
+	primary_mass_semi = 1
+elif primary_mass_first_result == 4 and primary_mass_second_result <= 8 :
+	primary_mass_semi = 2
+elif primary_mass_first_result == 4 and 8 < primary_mass_second_result <= 11 :
+	primary_mass_semi = 3
+elif primary_mass_first_result == 4 and primary_mass_second_result > 11 :
+	primary_mass_semi = 4
+elif primary_mass_first_result == 5 and primary_mass_second_result <= 7 :
+	primary_mass_semi = 5
+elif primary_mass_first_result == 5 and 7 < primary_mass_second_result <= 10 :
+	primary_mass_semi = 6
+elif primary_mass_first_result == 5 and 10 < primary_mass_second_result <= 12 :
+	primary_mass_semi = 7
+elif primary_mass_first_result == 5 and primary_mass_second_result > 12 :
+	primary_mass_semi = 8
+elif primary_mass_first_result == 6 and primary_mass_second_result <= 7 :
+	primary_mass_semi = 9
+elif primary_mass_first_result == 6 and 7 < primary_mass_second_result <= 9 :
+	primary_mass_semi = 10
+elif primary_mass_first_result == 6 and primary_mass_second_result == 10 :
+	primary_mass_semi = 11
+elif primary_mass_first_result == 6 and 10 < primary_mass_second_result <= 12 :
+	primary_mass_semi = 12
+elif primary_mass_first_result == 6 and primary_mass_second_result > 12 :
+	primary_mass_semi = 13
+elif primary_mass_first_result == 7 and primary_mass_second_result <= 7 :
+	primary_mass_semi = 14
+elif primary_mass_first_result == 7 and 7 < primary_mass_second_result <= 9 :
+	primary_mass_semi = 15
+elif primary_mass_first_result == 7 and primary_mass_second_result == 10 :
+	primary_mass_semi = 16
+elif primary_mass_first_result == 7 and 10 < primary_mass_second_result <= 12 :
+	primary_mass_semi = 17
+elif primary_mass_first_result == 7 and primary_mass_second_result > 12 :
+	primary_mass_semi = 18
+elif primary_mass_first_result == 8 and primary_mass_second_result <= 7 :
+	primary_mass_semi = 19
+elif primary_mass_first_result == 8 and 7 < primary_mass_second_result <= 9 :
+	primary_mass_semi = 20
+elif primary_mass_first_result == 8 and primary_mass_second_result == 10 :
+	primary_mass_semi = 21
+elif primary_mass_first_result == 8 and 10 < primary_mass_second_result <= 12 :
+	primary_mass_semi = 22
+elif primary_mass_first_result == 8 and primary_mass_second_result > 12 :
+	primary_mass_semi = 23
+elif primary_mass_first_result == 9 and primary_mass_second_result <= 8 :
+	primary_mass_semi = 24
+elif primary_mass_first_result == 9 and 8 < primary_mass_second_result <= 11 :
+	primary_mass_semi = 25
+elif primary_mass_first_result == 9 and primary_mass_second_result > 11 :
+	primary_mass_semi = 26
+elif primary_mass_first_result == 10 and primary_mass_second_result <= 8 :
+	primary_mass_semi = 27
+elif primary_mass_first_result == 10 and 8 < primary_mass_second_result <= 11 :
+	primary_mass_semi = 28
+elif primary_mass_first_result == 10 and primary_mass_second_result > 11 :
+	primary_mass_semi = 29
+elif primary_mass_first_result == 11 :
+	primary_mass_semi = 30
+elif primary_mass_first_result == 12 :
+	primary_mass_semi = 31
+elif primary_mass_first_result == 13 :
+	primary_mass_semi = 32
+else :
+	primary_mass_semi = 33
+
+if primary_mass_semi <= 4 :
+	primary_mass_variation = random.randint(-5, 4) * 0.01
+elif primary_mass_semi == 5 :
+	primary_mass_variation = random.randint(-2, 4) * 0.01
+else :
+	primary_mass_variation = random.randint(-2, 2) * 0.01
+
+primary_mass_final = solar_masses[primary_mass_semi] + primary_mass_variation
+
+secondary_mass_first = random.randint(0, 5)
+
+secondary_mass_second_1 = random.randint(1, 6)
+secondary_mass_second_2 = random.randint(1, 6)
+secondary_mass_second_3 = random.randint(1, 6)
+secondary_mass_second_4 = random.randint(1, 6)
+secondary_mass_second_5 = random.randint(1, 6)
+
+if secondary_mass_first == 0 :
+	secondary_mass_semi = primary_mass_semi
+elif secondary_mass_first == 1 :
+	secondary_mass_semi = primary_mass_semi + secondary_mass_second_1
+elif secondary_mass_first == 2 :
+	secondary_mass_semi = primary_mass_semi + secondary_mass_second_1 + secondary_mass_second_2
+elif secondary_mass_first == 3 :
+	secondary_mass_semi = primary_mass_semi + secondary_mass_second_1 + secondary_mass_second_2 + secondary_mass_second_3
+elif secondary_mass_first == 4 :
+	secondary_mass_semi = primary_mass_semi + secondary_mass_second_1 + secondary_mass_second_2 + secondary_mass_second_3 + secondary_mass_second_4
+else :
+	secondary_mass_semi = primary_mass_semi + secondary_mass_second_1 + secondary_mass_second_2 + secondary_mass_second_3 + secondary_mass_second_4 + secondary_mass_second_5
+
+if secondary_mass_semi > 33 :
+	secondary_mass_semi_final = 33
+else :
+	secondary_mass_semi_final = secondary_mass_semi
+
+if secondary_mass_semi_final <= 4 :
+	secondary_mass_variation = random.randint(-5, 4) * 0.01
+elif secondary_mass_semi_final == 5 :
+	secondary_mass_variation = random.randint(-2, 4) * 0.01
+else :
+	secondary_mass_variation = random.randint(-2, 2) * 0.01
+
+secondary_mass_final = solar_masses[secondary_mass_semi_final] + secondary_mass_variation
+
+tertiary_mass_first = random.randint(0, 5)
+
+tertiary_mass_second_1 = random.randint(1, 6)
+tertiary_mass_second_2 = random.randint(1, 6)
+tertiary_mass_second_3 = random.randint(1, 6)
+tertiary_mass_second_4 = random.randint(1, 6)
+tertiary_mass_second_5 = random.randint(1, 6)
+
+if tertiary_mass_first == 0 :
+	tertiary_mass_semi = primary_mass_semi
+elif tertiary_mass_first == 1 :
+	tertiary_mass_semi = primary_mass_semi + tertiary_mass_second_1
+elif tertiary_mass_first == 2 :
+	tertiary_mass_semi = primary_mass_semi + tertiary_mass_second_1 + tertiary_mass_second_2
+elif tertiary_mass_first == 3 :
+	tertiary_mass_semi = primary_mass_semi + tertiary_mass_second_1 + tertiary_mass_second_2 + tertiary_mass_second_3
+elif tertiary_mass_first == 4 :
+	tertiary_mass_semi = primary_mass_semi + tertiary_mass_second_1 + tertiary_mass_second_2 + tertiary_mass_second_3 + tertiary_mass_second_4
+else :
+	tertiary_mass_semi = primary_mass_semi + tertiary_mass_second_1 + tertiary_mass_second_2 + tertiary_mass_second_3 + tertiary_mass_second_4 + tertiary_mass_second_5
+
+if tertiary_mass_semi > 33 :
+	tertiary_mass_semi_final = 33
+else :
+	tertiary_mass_semi_final = tertiary_mass_semi
+
+if tertiary_mass_semi_final <= 4 :
+	tertiary_mass_variation = random.randint(-5, 4) * 0.01
+elif tertiary_mass_semi_final == 5 :
+	tertiary_mass_variation = random.randint(-2, 4) * 0.01
+else :
+	tertiary_mass_variation = random.randint(-2, 2) * 0.01
+
+tertiary_mass_final = solar_masses[tertiary_mass_semi_final] + tertiary_mass_variation
+
+print "System Type: " + str(stars_final) + " (3d: " + str(stars_result) + ")"
+print "Primary Star: " + str(primary_mass_final) + " (" + str(solar_masses[primary_mass_semi]) + ") solar masses (3d: " + str(primary_mass_first_result) + ", 3d: " + str(primary_mass_second_result) + ")"
+
+if stars_final == "Binary" :
+	print "Secondary Star: " + str(secondary_mass_final) + " (" + str(solar_masses[secondary_mass_semi_final]) + ") solar masses (1d-1: " + str(secondary_mass_first) + ", " + str(secondary_mass_first) + "d: " + str(secondary_mass_semi - primary_mass_semi) + ")"
+elif stars_final == "Trinary" :
+	print "Secondary Star: " + str(secondary_mass_final) + " (" + str(solar_masses[secondary_mass_semi_final]) + ") solar masses (1d-1: " + str(secondary_mass_first) + ", " + str(secondary_mass_first) + "d: " + str(secondary_mass_semi - primary_mass_semi) + ")"
+	print "Tertiary Star: " + str(tertiary_mass_final) + " (" + str(solar_masses[tertiary_mass_semi_final]) + ") solar masses (1d-1: " + str(tertiary_mass_first) + ", " + str(tertiary_mass_first) + "d: " + str(tertiary_mass_semi - primary_mass_semi) + ")"
+else :
+	print ""
