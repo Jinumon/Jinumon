@@ -357,24 +357,18 @@ elif primary_mass_semi == 32 :
 	primary_star_type = "M6"
 	primary_temp = 3200
 	primary_lmin = 0.0036
-else primary_mass_semi == 33 :
+elif primary_mass_semi == 33 :
 	primary_star_type = "M7"
 	primary_temp = 3100
 	primary_lmin = 0.0012
-
-if primary_mass_semi > 27 :
-	primary_lmax = primary_lmax
-	primary_mspan = primary_mspan
-else :
+elif primary_mass_semi <= 27 :
 	primary_lmax = 0
 	primary_mspan = 0
-
-if primary_mass_semi > 17 :
-	primary_sspan = primary_sspan
-	primary_gspan = primary_gspan
-else :
+elif primary_mass_semi <= 17 :
 	primary_sspan = 0
 	primary_gspan = 0
+else :
+	primary_sspan = 0
 
 if star_age_final <= primary_mspan :
 	primary_lum_base = primary_lmin + ((star_age_final / primary_mspan) * (primary_lmax - primary_lmin))
