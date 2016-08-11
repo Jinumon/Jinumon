@@ -388,7 +388,7 @@ else :
 primary_lum_variation = random.randint(90, 110) * 0.01
 
 if primary_lum_base == 0.001 :
-	primary_lum_final = 0.001
+	primary_lum_final = "Negligible"
 else :
 	primary_lum_final = primary_lum_base * primary_lum_variation
 
@@ -402,9 +402,20 @@ elif primary_mspan < star_age_final <= primary_mspan + primary_sspan :
 elif primary_mspan + primary_sspan < star_age_final <= primary_mspan + primary_sspan + primary_sspan :
 	primary_temp_base = 3000 + (200 * (giant_temp_1 + gian_temp_2))
 else :
-	primary_temp_final = "Neglible"
+	primary_temp_final = "Negligible"
 
+primary_dwarf_mass_1 = random.randint(0, 5)
+primary_dwarf_mass_2 = random.randint(0, 5)
+primary_dwarf_variation = random.randint(-2, 2) * 0.01
 
+if primary_mspan + primary_sspan + primary_gspan < star_age_final :
+	primary_mass_final = 0.9 + primary_dwarf_variation + (0.05 * (primary_dwarf_mass_1 + primary_dwarf_mass_2))
+else :
+	primary_mass_final = primary_mass_final
+
+if primary_temp_final = "Negligible" :
+	primary_radius = "Negligible"
+else : primary_radius = (155000 * primary_lum_final**0.5) / primary_temp_final**2
 
 secondary_mass_first = random.randint(0, 5)
 
