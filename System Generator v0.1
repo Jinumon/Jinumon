@@ -1048,7 +1048,7 @@ else :
 	print "Primary Star: " + str(primary_mass_final) + " solar masses (White Dwarf)"
 	print "	Effective Temp: Negligible; Luminosity: Negligible; Stellar Radius: Negligible"
 
-if stars_final == "Binary" or "Trinary" :
+if stars_final == "Binary" :
 	if secondary_temp_final != "Negligible" :
 		print "Secondary Star: " + str(secondary_mass_final) + " (" + str(solar_masses[secondary_mass_semi_final]) + ") solar masses (1d-1: " + str(secondary_mass_first) + ", " + str(secondary_mass_first) + "d: " + str(secondary_mass_semi - primary_mass_semi) + ")"
 		print "	Effective Temp: " + str(secondary_temp_final) + "K; Luminosity: " + str(secondary_lum_final) + "L; Stellar Radius: " + str(secondary_radius) + "AU"
@@ -1056,9 +1056,15 @@ if stars_final == "Binary" or "Trinary" :
 		print "Secondary Star: " + str(secondary_mass_final) + " solar masses (White Dwarf)"
 		print "	Effective Temp: Negligible; Luminosity: Negligible; Stellar Radius: Negligible"
 else :
-	print ""
+	None
 
 if stars_final == "Trinary" :
+	if secondary_temp_final != "Negligible" :
+		print "Secondary Star: " + str(secondary_mass_final) + " (" + str(solar_masses[secondary_mass_semi_final]) + ") solar masses (1d-1: " + str(secondary_mass_first) + ", " + str(secondary_mass_first) + "d: " + str(secondary_mass_semi - primary_mass_semi) + ")"
+		print "	Effective Temp: " + str(secondary_temp_final) + "K; Luminosity: " + str(secondary_lum_final) + "L; Stellar Radius: " + str(secondary_radius) + "AU"
+	else :
+		print "Secondary Star: " + str(secondary_mass_final) + " solar masses (White Dwarf)"
+		print "	Effective Temp: Negligible; Luminosity: Negligible; Stellar Radius: Negligible"
 	if tertiary_temp_final != "Negligible" :
 		print "Tertiary Star: " + str(tertiary_mass_final) + " (" + str(solar_masses[tertiary_mass_semi_final]) + ") solar masses (1d-1: " + str(tertiary_mass_first) + ", " + str(tertiary_mass_first) + "d: " + str(tertiary_mass_semi - primary_mass_semi) + ")"
 		print "	Effective Temp: " + str(tertiary_temp_final) + "K; Luminosity: " + str(tertiary_lum_final) + "L; Stellar Radius: " + str(tertiary_radius) + "AU"
