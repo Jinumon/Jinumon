@@ -8,10 +8,10 @@ stars_result = stars_1 + stars_2 + stars_3 + 3
 
 if stars_result <= 10 :
 	stars_final = "Singular"
-elif stars_result >= 16 :
-	stars_final = "Trinary"
-else :
+elif 10 < stars_result <= 16 :
 	stars_final = "Binary"
+else :
+	stars_final = "Trinary"
 
 star_age_first_1 = random.randint(1, 6)
 star_age_first_2 = random.randint(1, 6)
