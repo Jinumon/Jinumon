@@ -692,15 +692,15 @@ if secondary_lum_base == 0.001 :
 else :
 	secondary_lum_final = secondary_lum_base * secondary_lum_variation
 
-giant_temp_1 = random.randint(0, 5)
-giant_temp_2 = random.randint(0, 5)
+secondary_giant_temp_1 = random.randint(0, 5)
+secondary_giant_temp_2 = random.randint(0, 5)
 
 if star_age_final <= secondary_mspan :
 	secondary_temp_base = secondary_temp
 elif secondary_mspan < star_age_final <= secondary_mspan + secondary_sspan :
-	secondary_temp_base = secondary_temp - ((star_age_final / secondary_sspan) * (secondary_temp - 4800))
+	secondary_temp_base = secondary_temp - (((star_age_final - secondary_mspan) / secondary_sspan) * (secondary_temp - 4800))
 elif secondary_mspan + secondary_sspan < star_age_final <= secondary_mspan + secondary_sspan + secondary_sspan :
-	secondary_temp_base = 3000 + (200 * (giant_temp_1 + giant_temp_2))
+	secondary_temp_base = 3000 + (200 * (secondary_giant_temp_1 + secondary_giant_temp_2))
 else :
 	secondary_temp_base = 0
 
@@ -1005,15 +1005,15 @@ if tertiary_lum_base == 0.001 :
 else :
 	tertiary_lum_final = tertiary_lum_base * tertiary_lum_variation
 
-giant_temp_1 = random.randint(0, 5)
-giant_temp_2 = random.randint(0, 5)
+tertiary_giant_temp_1 = random.randint(0, 5)
+tertiary_giant_temp_2 = random.randint(0, 5)
 
 if star_age_final <= tertiary_mspan :
 	tertiary_temp_base = tertiary_temp
 elif tertiary_mspan < star_age_final <= tertiary_mspan + tertiary_sspan :
-	tertiary_temp_base = tertiary_temp - ((star_age_final / tertiary_sspan) * (tertiary_temp - 4800))
+	tertiary_temp_base = tertiary_temp - (((star_age_final - tertiary_mspan) / tertiary_sspan) * (tertiary_temp - 4800))
 elif tertiary_mspan + tertiary_sspan < star_age_final <= tertiary_mspan + tertiary_sspan + tertiary_sspan :
-	tertiary_temp_base = 3000 + (200 * (giant_temp_1 + giant_temp_2))
+	tertiary_temp_base = 3000 + (200 * (tertiary_giant_temp_1 + tertiary_giant_temp_2))
 else :
 	tertiary_temp_base = 0
 
