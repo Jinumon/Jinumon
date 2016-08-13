@@ -1169,7 +1169,10 @@ if stars_final == "Binary" :
 	else :
 		print "Secondary Star: " + str(secondary_mass_final) + " solar masses (White Dwarf)"
 		print "	Effective Temp: Negligible; Luminosity: Negligible; Stellar Radius: Negligible"
-	print "	Separation: " + str(secondary_orbit_separation) + "; Orbital Radius: " + str(secondary_separation_final) + "AU; Eccentricity: " + str(secondary_eccentricity_final) + "; Min/Max Separation: " + str(secondary_separation_minimum) + "AU/" + str(secondary_separation_maximum) + "AU"
+	if secondary_orbit separation == "Very Close" :
+		print "	Separation: " + str(secondary_orbit_separation) + "(3d: " + str(secondary_orbit_first) + "); Orbital Radius: " + str(secondary_separation_final) + " (" + str(secondary_separation_semi) + ")AU; Eccentricity: " + str(secondary_eccentricity_final) + " (" + str(secondary_eccentricity_base) "); Min/Max Separation: " + str(secondary_separation_minimum) + "AU/" + str(secondary_separation_maximum) + "AU"
+	elif secondary_orbit separation == "Close" :
+		print "	Separation: " + str(secondary_orbit_separation) + "(3d: " + str(secondary_orbit_first) + "); Orbital Radius: " + str(secondary_separation_final) + " (" + str(secondary_separation_semi) + ")AU; Eccentricity: " + str(secondary_eccentricity_final) + " (" + str(secondary_eccentricity_base) + ") (3d-6: " + str(secondary_eccentricity_roll) + "); Min/Max Separation: " + str(secondary_separation_minimum) + "AU/" + str(secondary_separation_maximum) + "AU"
 else :
 	None
 
