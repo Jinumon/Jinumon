@@ -793,6 +793,53 @@ if 10 < secondary_companion :
 else :
 	None
 
+if secondary_orbit_separation == "Very Close" :
+	secondary_eccentricity_roll = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) - 6
+elif secondary_orbit_separation == "Close" :
+	secondary_eccentricity_roll = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) - 4
+elif secondary_orbit_separation == "Moderate" :
+	secondary_eccentricity_roll = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) - 2
+else :
+	secondary_eccentricity_roll = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6)
+
+if secondary_eccentricity_roll <=3 :
+	secondary_eccentricity_base = 0
+elif secondary_eccentricity_roll == 4 :
+	secondary_eccentricity_base = 0.1
+elif secondary_eccentricity_roll == 5 :
+	secondary_eccentricity_base = 0.2
+elif secondary_eccentricity_roll == 6 :
+	secondary_eccentricity_base = 0.3
+elif 6 < secondary_eccentricity_roll <= 8 :
+	secondary_eccentricity_base = 0.4
+elif 8 < secondary_eccentricity_roll <= 11 :
+	secondary_eccentricity_base = 0.5
+elif 11 < secondary_eccentricity_roll <= 13 :
+	secondary_eccentricity_base = 0.6
+elif 13 < secondary_eccentricity_roll <= 15 :
+	secondary_eccentricity_base = 0.7
+elif secondary_eccentricity_roll == 16 :
+	secondary_eccentricity_base = 0.8
+elif secondary_eccentricity_roll == 17 :
+	secondary_eccentricity_base = 0.9
+else :
+	secondary_eccentricity_base = 0.95
+
+if secondary_eccentricity_base == 0 :
+	secondary_eccentricity_variation = random.randint(0, 4) * 0.01
+elif 0 < secondary_eccentricity_base <= 0.8 :
+	secondary_eccentricity_variation = random.randint(-5, 4) * 0.01
+elif secondary_eccentricity_base == 0.9 :
+	secondary_eccentricity_variation = random.randint(-5, 2) * 0.01
+else :
+	secondary_eccentricity_variation = random.randint(-2, 4) * 0.01
+
+secondary_eccentricity_final = secondary_eccentricity_base + secondary_eccentricity_variation
+
+secondary_separation_minimum = (1 - secondary_eccentricity_final) * secondary_separation_final
+
+secondary_separation_maximum = (1 + secondary_eccentricity_final) * secondary_separation_final
+
 tertiary_mass_first = random.randint(0, 5)
 
 tertiary_mass_second_1 = random.randint(1, 6)
@@ -1122,6 +1169,7 @@ if stars_final == "Binary" :
 	else :
 		print "Secondary Star: " + str(secondary_mass_final) + " solar masses (White Dwarf)"
 		print "	Effective Temp: Negligible; Luminosity: Negligible; Stellar Radius: Negligible"
+	print "	Separation: " + str(secondary_orbit_separation) + "; Orbital Radius: " + str(secondary_separation_final) + "AU; Eccentricity: " + str(secondary_eccentricity_final) + "; Min/Max Separation: " + str(secondary_separation_minimum) + "AU/" + str(secondary_separation_maximum) + "AU"
 else :
 	None
 
