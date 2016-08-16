@@ -251,7 +251,7 @@ if primary_temp_final == "N/A" :
 	print "	Type: " + str(primary_type) + "; Temp: " + str(primary_temp_final) + "; Luminosity: " + str(primary_lum_final) + "L; Radius: " + str(primary_radius)
 else :
 	print "	Type: " + str(primary_type) + "; Temp: " + str(primary_temp_final) + "K; Luminosity: " + str(primary_lum_final) + "L; Radius: " + str(primary_radius) + " AU"
-if stars_final == "Binary" or "Trinary" :
+if stars_final == "Binary" or stars_final == "Trinary" :
 	if secondary_temp_final == "N/A" :
 		print "Secondary Star: " + str(secondary_mass_final) + " solar masses (White Dwarf)"
 	else :
