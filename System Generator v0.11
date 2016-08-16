@@ -160,6 +160,87 @@ if primary_temp_final == "N/A" :
 else :
 	primary_radius = (155000 * primary_lum_final**0.5) / primary_temp_final**2
 
+secondary_star_roll = random.randint(1, 6) - 1
+
+if secondary_star_roll == 0 :
+	secondary_number_semi = primary_number
+elif secondary_star_roll == 1 :
+	secondary_number_semi = primary_number + random.randint(1, 6)
+elif secondary_star_roll == 2 :
+	secondary_number_semi = primary_number + random.randint(1, 6) + random.randint(1, 6)
+elif secondary_star_roll == 3 :
+	secondary_number_semi = primary_number + random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6)
+elif secondary_star_roll == 4 :
+	secondary_number_semi = primary_number + random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6)
+else :
+	secondary_number_semi = primary_number + random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6)
+
+if secondary_number_semi > 33 :
+	secondary_number = 33
+else :
+	secondary_number = secondary_number_semi
+
+secondary_mass = star_mass[secondary_number]
+secondary_type = star_type[secondary_number]
+secondary_temp = star_temp[secondary_number]
+secondary_lmin = star_lmin[secondary_number]
+psecondary_lmax = star_lmax[secondary_number]
+secondary_mspan = star_mspan[secondary_number]
+secondary_sspan = star_sspan[secondary_number]
+secondary_gspan = star_gspan[secondary_number]
+
+if secondary_number <= 4 :
+	secondary_mass_variance = random.randint(-5, 4) * 0.01
+elif secondary_number == 5 :
+	secondary_mass_variance = random.randint(-2, 4) * 0.01
+else :
+	secondary_mass_variance = random.randint(-2, 2) * 0.01
+
+secondary_dwarf_mass_roll = random.randint(1, 6) + random.randint(1, 6) - 2
+
+if secondary_mspan + secondary_sspan + secondary_gspan < population_age_final and 0.40 < secondary_mass :
+	secondary_mass_final = 0.9 + (secondary_dwarf_mass_roll * 0.05) + (random.randint(-5, 4) * 0.01)
+else :
+	secondary_mass_final = secondary_mass + secondary_mass_variance
+
+if population_age_final < secondary_mspan :
+	secondary_lum = (secondary_lmin + ((population_age_final / secondary_mspan) * (secondary_lmax - secondary_lmin)))
+elif (secondary_mspan) <= population_age_final <= (secondary_mspan + secondary_sspan) :
+	secondary_lum = secondary_lmax
+elif (secondary_mspan + secondary_sspan) < population_age_final <= (secondary_mspan + secondary_sspan + secondary_gspan) :
+	secondary_lum = secondary_lmax * 25
+elif secondary_mspan + secondary_sspan + secondary_gspan < population_age_final and secondary_mass <= 0.40 :
+	secondary_lum = secondary_lmin
+else :
+	secondary_lum = 0.001
+
+secondary_lum_variance = random.randint(90, 110) * 0.01
+
+secondary_lum_final = secondary_lum * secondary_lum_variance
+
+secondary_giant_temp_roll = random.randint(1, 6) + random.randint(1, 6) - 2
+
+if population_age_final <= secondary_mspan :
+	secondary_temp_base = secondary_temp
+elif secondary_mspan < population_age_final <= secondary_mspan + secondary_sspan :
+	secondary_temp_base = secondary_temp - (((population_age_final - secondary_mspan) / secondary_sspan) * (secondary_temp - 4800))
+elif secondary_mspan + secondary_sspan < population_age_final <= secondary_mspan + secondary_sspan + secondary_sspan :
+	secondary_temp_base = 3000 + (200 * secondary_giant_temp_roll)
+else :
+	secondary_temp_base = secondary_temp
+
+secondary_temp_variance = random.randint(-100, 100)
+
+if (secondary_mspan + secondary_sspan + secondary_gspan) < population_age_final and 0.40 < secondary_mass :
+	secondary_temp_final = "N/A"
+else :
+	secondary_temp_final = secondary_temp_base + secondary_temp_variance
+
+if secondary_temp_final == "N/A" :
+	secondary_radius = "N/A"
+else :
+	secondary_radius = (155000 * secondary_lum_final**0.5) / secondary_temp_final**2
+
 print "System Type: " + str(stars_final) + " (3d+3: " + str(stars_roll) + ")"
 print "System Age: " + str(population_age_final) + " Billion Years"
 if primary_temp_final == "N/A" :
@@ -170,3 +251,14 @@ if primary_temp_final == "N/A" :
 	print "	Type: " + str(primary_type) + "; Temp: " + str(primary_temp_final) + "; Luminosity: " + str(primary_lum_final) + "L; Radius: " + str(primary_radius)
 else :
 	print "	Type: " + str(primary_type) + "; Temp: " + str(primary_temp_final) + "K; Luminosity: " + str(primary_lum_final) + "L; Radius: " + str(primary_radius) + " AU"
+if stars_final == "Binary" or "Trinary" :
+	if secondary_temp_final == "N/A" :
+		print "Secondary Star: " + str(secondary_mass_final) + " solar masses (White Dwarf)"
+	else :
+		print "Secondary Star: " + str(secondary_mass_final) + " (" + str(secondary_mass) + ") solar masses (1d-1: " + str(secondary_star_roll) + ", " + str(secondary_star_roll) + "d: " + str(secondary_number_semi - primary_number) + ")"
+	if secondary_temp_final == "N/A" :
+		print "	Type: " + str(secondary_type) + "; Temp: " + str(secondary_temp_final) + "; Luminosity: " + str(secondary_lum_final) + "L; Radius: " + str(secondary_radius)
+	else :
+		print "	Type: " + str(secondary_type) + "; Temp: " + str(secondary_temp_final) + "K; Luminosity: " + str(secondary_lum_final) + "L; Radius: " + str(secondary_radius) + " AU"
+else :
+	None
