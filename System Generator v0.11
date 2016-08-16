@@ -122,9 +122,9 @@ if primary_mspan + primary_sspan + primary_gspan < population_age_final and 0.40
 else :
 	primary_mass_final = primary_mass + primary_mass_variance
 
-if population_age_final <= primary_mspan :
+if population_age_final < primary_mspan :
 	primary_lum = (primary_lmin + ((population_age_final / primary_mspan) * (primary_lmax - primary_lmin)))
-elif (primary_mspan) < population_age_final <= (primary_mspan + primary_sspan) :
+elif (primary_mspan) <= population_age_final <= (primary_mspan + primary_sspan) :
 	primary_lum = primary_lmax
 elif (primary_mspan + primary_sspan) < population_age_final <= (primary_mspan + primary_sspan + primary_gspan) :
 	primary_lum = primary_lmax * 25
