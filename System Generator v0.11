@@ -17,5 +17,5 @@ population_type_final = population_type[population_roll_1]
 population_number_final = population_number[population_roll_1]
 population_age_final = base_age[population_number_final] + (step_a[population_number_final] * population_roll_2) + (step_b[population_number_final] * population_roll_3)
 
-print "System Type: " + str(stars_final) + "(3d+3: " + str(stars_roll) + ")"
+print "System Type: " + str(stars_final) + " (3d+3: " + str(stars_roll) + ")"
 print "System Age: " + str(population_age_final) + " Billion Years " + "(" + str(population_type_final) + ")"
