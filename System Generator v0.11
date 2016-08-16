@@ -8,14 +8,14 @@ population_roll_1 = random.randint(1, 6) + random.randint(1, 6) + random.randint
 population_roll_2 = random.randint(1, 6) - 1
 population_roll_3 = random.randint(1, 6) - 1
 population_type = "Invalid", "Invalid", "Invalid", "Extreme Population I", "Young Population I", "Young Population I", "Young Population I", "Intermediate Population I", "Intermediate Population I", "Intermediate Population I", "Intermediate Population I", "Old Population I", "Old Population I", "Old Population I", "Old Population I", "Intermediate Population II", "Intermediate Population II", "Intermediate Population II", "Extreme Population"
-population_age = -1, -1, -1, 0, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5
+population_number = -1, -1, -1, 0, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5
 base_age = 0, 0.1, 2, 5.6, 8, 10
 step_a = 0, 0.3, 0.6, 0.6, 0.6, 0.6
 step_b = 0, 0.05, 0.1, 0.1, 0.1, 0.1
 
 population_type_final = population_type[population_roll_1]
-population_age_final = population_age[population_roll_1]
-age_final = base_age[population_age_final] + (step_a[population_age_final] * population_roll_2) + (step_b[population_age_final] * population_roll_3)
+population_age = population_number[population_roll_1]
+population_age_final = base_age[population_age_final] + (step_a[population_age_final] * population_roll_2) + (step_b[population_age_final] * population_roll_3)
 
-print "System Type: " + str(stars_final)
-print "System Age: " + str(age_final) + " Billion Years"
+print "System Type: " + str(stars_final) + "(3d+3: " + str(stars_roll) + ")"
+print "System Age: " + str(population_age_final) + " Billion Years" + "(" + str(population_type) + ")"
