@@ -1,7 +1,7 @@
 import random
 
 stars_roll = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) + 3    ##Simulates roll of 3d+3 for open cluster star system
-stars = "Invalid", "Invalid", "Invalid", "Singular", "Singular", "Singular", "Singular", "Singular", "Singular", "Singular", "Singular", "Binary", "Binary", "Binary", "Binary", "Binary", "Binary", "Trinary", "Trinary"
+stars = "Invalid", "Invalid", "Invalid", "Singular", "Singular", "Singular", "Singular", "Singular", "Singular", "Singular", "Singular", "Binary", "Binary", "Binary", "Binary", "Binary", "Binary", "Trinary", "Trinary", "Trinary", "Trinary", "Trinary"
 stars_final = stars[stars_roll]
 
 population_roll_1 = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6)   ##Simulates roll of 3d for stellar age population
