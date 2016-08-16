@@ -167,6 +167,6 @@ if primary_temp_final == "N/A" :
 else :
 	print "Primary Star: " + str(primary_mass_final) + " (" + str(primary_mass) + ") solar masses (3d: " + str(primary_star_roll_1) + ", 3d: " + str(primary_star_roll_2) + ")"
 if primary_temp_final == "N/A" :
-	print "	Type: " + str(primary_type) + "; Temp: " + str(primary_temp_final) + "Luminosity: " + str(primary_lum_final) + "L; Radius: " + str(primary_radius)
+	print "	Type: " + str(primary_type) + "; Temp: " + str(primary_temp_final) + "; Luminosity: " + str(primary_lum_final) + "L; Radius: " + str(primary_radius)
 else :
 	print "	Type: " + str(primary_type) + "; Temp: " + str(primary_temp_final) + "K; Luminosity: " + str(primary_lum_final) + "L; Radius: " + str(primary_radius) + " AU"
