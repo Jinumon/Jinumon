@@ -117,7 +117,7 @@ else :
 
 primary_dwarf_mass_roll = random.randint(1, 6) + random.randint(1, 6) - 2
 
-if primary_mspan + primary_sspan + primary_gspan < population_age_final :
+if primary_mspan + primary_sspan + primary_gspan < population_age_final and 0.40 < primary_mass :
 	primary_mass_final = 0.9 + (primary_dwarf_mass_roll * 0.05) + (random.randint(-5, 4) * 0.01)
 else :
 	primary_mass_final = primary_mass + primary_mass_variance
