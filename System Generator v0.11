@@ -323,7 +323,7 @@ else :
 	tertiary_radius = (155000 * tertiary_lum_final**0.5) / tertiary_temp_final**2
 
 print "System Type: " + str(stars_final) + " (3d+3: " + str(stars_roll) + ")"
-print "System Age: " + str(population_age_final) + " Billion Years, " + str(population_type) + " (3d: " + str(population_roll_1) + ", 1d-1: " + str(population_roll_2) + ", 1d-1: " + str(population_roll_3) + ")"
+print "System Age: " + str(population_age_final) + " Billion Years, " + str(population_type_final) + " (3d: " + str(population_roll_1) + ", 1d-1: " + str(population_roll_2) + ", 1d-1: " + str(population_roll_3) + ")"
 if primary_temp_final == "N/A" :
 	print "Primary Star: " + str(primary_mass_final) + " solar masses (White Dwarf)"
 else :
