@@ -119,4 +119,4 @@ primary_mass_final = primary_mass + primary_mass_variance
 
 print "System Type: " + str(stars_final) + " (3d+3: " + str(stars_roll) + ")"
 print "System Age: " + str(population_age_final) + " Billion Years " + "(" + str(population_type_final) + ")"
-print "Primary Star: " + str(primary_mass_final) + " (" + str(primary_mass) + ") solar masses; Type: " + str(primary_type)
+print "Primary Star: " + str(primary_mass_final) + " (" + str(primary_mass) + ") solar masses (3d: " + str(primary_star_roll_1) + ", 3d: " + str(primary_star_roll_2) + ")"
