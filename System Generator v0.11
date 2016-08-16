@@ -115,8 +115,50 @@ elif primary_number == 5 :
 else :
 	primary_mass_variance = random.randint(-2, 2) * 0.01
 
-primary_mass_final = primary_mass + primary_mass_variance
+primary_dwarf_mass_roll = random.randint(1, 6) + random.randint(1, 6) - 2
+
+if primary_mspan + primary_sspan + primary_gspan < population_age_final :
+	primary_mass_final = 0.9 + (primary_dwarf_mass_roll * 0.05) + (random.randint(-5, 4) * 0.01)
+else :
+	primary_mass_final = primary_mass + primary_mass_variance
+
+if population_age_final <= primary_mspan :
+	primary_lum = (primary_lmin + ((population_age_final / primary_mspan) * (primary_lmax - primary_lmin)))
+elif (primary_mspan) < population_age_final <= (primary_mspan + primary_sspan) :
+	primary_lum = primary_lmax
+elif (primary_mspan + primary_sspan) < population_age_final <= (primary_mspan + primary_sspan + primary_gspan) :
+	primary_lum = primary_lmax * 25
+else :
+	primary_lum = primary_lmin
+
+primary_lum_variance = random.randint(90, 110) * 0.01
+
+primary_lum_final = primary_lum * primary_lum_variance
+
+primary_giant_temp_roll = random.randint(1, 6) + random.randint(1, 6) - 2
+
+if population_age_final <= primary_mspan :
+	primary_temp_base = primary_temp
+elif primary_mspan < population_age_final <= primary_mspan + primary_sspan :
+	primary_temp_base = primary_temp - (((population_age_final - primary_mspan) / primary_sspan) * (primary_temp - 4800))
+elif primary_mspan + primary_sspan < population_age_final <= primary_mspan + primary_sspan + primary_sspan :
+	primary_temp_base = 3000 + (200 * primary_giant_temp_roll)
+else :
+	primary_temp_base = primary_temp
+
+primary_temp_variance = random.randint(-100, 100)
+
+if (primary_mspan + primary_sspan + primary_gspan) < population_age_final and 0.40 < primary_mass :
+	primary_temp_final = "N/A"
+else :
+	primary_temp_final = primary_temp_base + primary_temp_variance
+
+if primary_temp_final == "N/A" :
+	primary_radius = "N/A"
+else :
+	primary_radius = (155000 * primary_lum_final**0.5) / primary_temp_final**2
 
 print "System Type: " + str(stars_final) + " (3d+3: " + str(stars_roll) + ")"
-print "System Age: " + str(population_age_final) + " Billion Years " + "(" + str(population_type_final) + ")"
+print "System Age: " + str(population_age_final) + " Billion Years"
 print "Primary Star: " + str(primary_mass_final) + " (" + str(primary_mass) + ") solar masses (3d: " + str(primary_star_roll_1) + ", 3d: " + str(primary_star_roll_2) + ")"
+print "	Type: " + str(primary_type) + "; Temp: " + str(primary_temp_final) + "K; Luminosity: " + str(primary_lum_final) + "L; Radius: " + str(primary_radius) + " AU"
