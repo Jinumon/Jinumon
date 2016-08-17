@@ -338,21 +338,17 @@ if 10 < secondary_companion and secondary_orbit_separation == "Distant" :
 	secondary_companion_mspan = star_mspan[secondary_companion_number]
 	secondary_companion_sspan = star_sspan[secondary_companion_number]
 	secondary_companion_gspan = star_gspan[secondary_companion_number]
-
 	if secondary_companion_number <= 4 :
 		secondary_companion_mass_variance = random.randint(-5, 4) * 0.01
 	elif secondary_companion_number == 5 :
 		secondary_companion_mass_variance = random.randint(-2, 4) * 0.01
 	else :
 		secondary_companion_mass_variance = random.randint(-2, 2) * 0.01
-
 	secondary_companion_dwarf_mass_roll = random.randint(1, 6) + random.randint(1, 6) - 2
-
 	if secondary_companion_mspan + secondary_companion_sspan + secondary_companion_gspan < population_age_final and 0.40 < secondary_companion_mass :
 		secondary_companion_mass_final = 0.9 + (secondary_companion_dwarf_mass_roll * 0.05) + (random.randint(-5, 4) * 0.01)
 	else :
 		secondary_companion_mass_final = secondary_companion_mass + secondary_companion_mass_variance
-
 	if population_age_final < secondary_companion_mspan :
 		secondary_companion_lum = (secondary_companion_lmin + ((population_age_final / secondary_companion_mspan) * (secondary_companion_lmax - secondary_companion_lmin)))
 	elif (secondary_companion_mspan) <= population_age_final <= (secondary_companion_mspan + secondary_companion_sspan) :
@@ -363,13 +359,9 @@ if 10 < secondary_companion and secondary_orbit_separation == "Distant" :
 		secondary_companion_lum = secondary_companion_lmin
 	else :
 		secondary_companion_lum = 0.001
-
 	secondary_companion_lum_variance = random.randint(90, 110) * 0.01
-
 	secondary_companion_lum_final = secondary_companion_lum * secondary_companion_lum_variance
-
 	secondary_companion_giant_temp_roll = random.randint(1, 6) + random.randint(1, 6) - 2
-
 	if population_age_final <= secondary_companion_mspan :
 		secondary_companion_temp_base = secondary_companion_temp
 	elif secondary_companion_mspan < population_age_final <= secondary_companion_mspan + secondary_companion_sspan :
@@ -378,22 +370,17 @@ if 10 < secondary_companion and secondary_orbit_separation == "Distant" :
 		secondary_companion_temp_base = 3000 + (200 * secondary_companion_giant_temp_roll)
 	else :
 		secondary_companion_temp_base = secondary_companion_temp
-
 	secondary_companion_temp_variance = random.randint(-100, 100)
-
 	if (secondary_companion_mspan + secondary_companion_sspan + secondary_companion_gspan) < population_age_final and 0.40 < secondary_companion_mass :
 		secondary_companion_temp_final = "N/A"
 	else :
 		secondary_companion_temp_final = secondary_companion_temp_base + secondary_companion_temp_variance
-
 	if secondary_companion_temp_final == "N/A" :
 		secondary_companion_radius = "N/A"
 	else :
 		secondary_companion_radius = (155000 * secondary_companion_lum_final**0.5) / secondary_companion_temp_final**2
-
 	secondary_companion_orbit_roll_1 = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) - 6
 	secondary_companion_orbit_roll_2 = random.randint(1, 6) + random.randint(1, 6)
-	
 	if secondary_companion_orbit_roll_1 <= 6 :
 		secondary_companion_orbit_separation = "Very Close"
 		secondary_companion_separation = 0.05 * secondary_companion_orbit_roll_2
@@ -419,9 +406,7 @@ if 10 < secondary_companion and secondary_orbit_separation == "Distant" :
 		secondary_companion_separation = 50 * secondary_companion_orbit_roll_2
 		secondary_companion_separation_variance = random.randint(-25, 25)
 		secondary_companion_eccentricity_roll = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6)
-
 	secondary_companion_separation_final = secondary_companion_separation + secondary_companion_separation_variance
-
 	if secondary_companion_eccentricity_roll <= 3 :
 		secondary_companion_eccentricity = 0
 	elif secondary_companion_eccentricity_roll == 4 :
@@ -444,7 +429,6 @@ if 10 < secondary_companion and secondary_orbit_separation == "Distant" :
 		secondary_companion_eccentricity = 0.9
 	else :
 		secondary_companion_eccentricity = 0.95
-
 	if secondary_companion_eccentricity == 0 :
 		secondary_companion_eccentricity_variance = random.randint(0, 4) * 0.01
 	elif 0 < secondary_companion_eccentricity <= 0.8 :
@@ -453,7 +437,6 @@ if 10 < secondary_companion and secondary_orbit_separation == "Distant" :
 		secondary_companion_eccentricity_variance = random.randint(-5, 2) * 0.01
 	else :
 		secondary_companion_eccentricity_variance = random.randint(-2, 4) * 0.01
-
 	secondary_companion_eccentricity_final = secondary_companion_eccentricity + secondary_companion_eccentricity_variance
 	secondary_companion_separation_min = (1 - secondary_companion_eccentricity_final) * secondary_companion_separation_final
 	secondary_companion_separation_max = (1 + secondary_companion_eccentricity_final) * secondary_companion_separation_final
