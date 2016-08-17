@@ -324,19 +324,20 @@ if 10 < secondary_companion and secondary_orbit_separation == "Distant" :
 		secondary_companion_number_semi = secondary_number + random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6)
 	else :
 		secondary_companion_number_semi = secondary_number + random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6)
+		
 	if secondary_companion_number_semi > 33 :
 		secondary_companion_number = 33
 	else :
 		secondary_campanion_number = secondary_companion_number_semi
 		
-	secondary_companion_mass = star_mass[secondary_number]
-	secondary_companion_type = star_type[secondary_number]
-	secondary_companion_temp = star_temp[secondary_number]
-	secondary_companion_lmin = star_lmin[secondary_number]
-	secondary_companion_lmax = star_lmax[secondary_number]
-	secondary_companion_mspan = star_mspan[secondary_number]
-	secondary_companion_sspan = star_sspan[secondary_number]
-	secondary_companion_gspan = star_gspan[secondary_number]
+	secondary_companion_mass = star_mass[secondary_companion_number]
+	secondary_companion_type = star_type[secondary_companion_number]
+	secondary_companion_temp = star_temp[secondary_companion_number]
+	secondary_companion_lmin = star_lmin[secondary_companion_number]
+	secondary_companion_lmax = star_lmax[secondary_companion_number]
+	secondary_companion_mspan = star_mspan[secondary_companion_number]
+	secondary_companion_sspan = star_sspan[secondary_companion_number]
+	secondary_companion_gspan = star_gspan[secondary_companion_number]
 
 	if secondary_companion_number <= 4 :
 		secondary_companion_mass_variance = random.randint(-5, 4) * 0.01
