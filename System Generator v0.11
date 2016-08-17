@@ -309,6 +309,7 @@ secondary_separation_min = (1 - secondary_eccentricity_final) * secondary_separa
 secondary_separation_max = (1 + secondary_eccentricity_final) * secondary_separation_final
 
 secondary_companion = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6)
+secondary_companion_number = 0
 
 if 10 < secondary_companion and secondary_orbit_separation == "Distant" :
 	secondary_companion_roll = random.randint(1, 6) - 1
