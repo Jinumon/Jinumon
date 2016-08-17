@@ -310,7 +310,7 @@ secondary_separation_max = (1 + secondary_eccentricity_final) * secondary_separa
 
 secondary_companion = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6)
 
-if 10 < secondary_companion :
+if 10 < secondary_companion and secondary_orbit_separation == "Distant" :
 	secondary_companion_roll = random.randint(1, 6) - 1
 	if secondary_companion_roll == 0 :
 		secondary_companion_number_semi = secondary_number
@@ -572,3 +572,8 @@ if stars_final == "Trinary" :
 		print "	Type: " + str(tertiary_type) + "; Temp: " + str(tertiary_temp_final) + "K; Luminosity: " + str(tertiary_lum_final) + "L; Radius: " + str(tertiary_radius) + " AU"
 else :
 	None
+
+if 10 < secondary_companion and secondary_orbit_separation == "Distant" :
+	print "Yes"
+else :
+	print "No"
