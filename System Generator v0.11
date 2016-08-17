@@ -523,6 +523,207 @@ if tertiary_temp_final == "N/A" :
 else :
 	tertiary_radius = (155000 * tertiary_lum_final**0.5) / tertiary_temp_final**2
 
+tertiary_orbit_roll_1 = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) + 6
+tertiary_orbit_roll_2 = random.randint(1, 6) + random.randint(1, 6)
+
+if tertiary_orbit_roll_1 <= 6 :
+	tertiary_orbit_separation = "Very Close"
+	tertiary_separation = 0.05 * tertiary_orbit_roll_2
+	tertiary_separation_variance = random.randint(-25, 25) * 0.001
+	tertiary_eccentricity_roll = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) - 6
+elif 6 < tertiary_orbit_roll_1 <= 9 :
+	tertiary_orbit_separation = "Close"
+	tertiary_separation = 0.5 * tertiary_orbit_roll_2
+	tertiary_separation_variance = random.randint(-25, 25) * 0.01
+	tertiary_eccentricity_roll = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) - 4
+elif 9 < tertiary_orbit_roll_1 <= 11 :
+	tertiary_orbit_separation = "Moderate"
+	tertiary_separation = 2 * tertiary_orbit_roll_2
+	tertiary_separation_variance = random.randint(-10, 10) * 0.1
+	tertiary_eccentricity_roll = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) - 2
+elif 11 < tertiary_orbit_roll_1 <= 14 :
+	tertiary_orbit_separation = "Wide"
+	tertiary_separation = 10 * tertiary_orbit_roll_2
+	tertiary_separation_variance = random.randint(-50, 50) * 0.1
+	tertiary_eccentricity_roll = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6)
+else :
+	tertiary_orbit_separation = "Distant"
+	tertiary_separation = 50 * tertiary_orbit_roll_2
+	tertiary_separation_variance = random.randint(-25, 25)
+	tertiary_eccentricity_roll = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6)
+
+tertiary_separation_final = tertiary_separation + tertiary_separation_variance
+
+if tertiary_eccentricity_roll <= 3 :
+	tertiary_eccentricity = 0
+elif tertiary_eccentricity_roll == 4 :
+	tertiary_eccentricity = 0.1
+elif tertiary_eccentricity_roll == 5 :
+	tertiary_eccentricity = 0.2
+elif tertiary_eccentricity_roll == 6 :
+	tertiary_eccentricity = 0.3
+elif 6 < tertiary_eccentricity_roll <= 8 :
+	tertiary_eccentricity = 0.4
+elif 8 < tertiary_eccentricity_roll <= 11 :
+	tertiary_eccentricity = 0.5
+elif 11 < tertiary_eccentricity_roll <= 13 :
+	tertiary_eccentricity = 0.6
+elif 13 < tertiary_eccentricity_roll <= 15 :
+	tertiary_eccentricity = 0.7
+elif tertiary_eccentricity_roll == 16 :
+	tertiary_eccentricity = 0.8
+elif tertiary_eccentricity_roll == 17 :
+	tertiary_eccentricity = 0.9
+else :
+	tertiary_eccentricity = 0.95
+
+if tertiary_eccentricity == 0 :
+	tertiary_eccentricity_variance = random.randint(0, 4) * 0.01
+elif 0 < tertiary_eccentricity <= 0.8 :
+	tertiary_eccentricity_variance = random.randint(-5, 4) * 0.01
+elif tertiary_eccentricity == 0.9 :
+	tertiary_eccentricity_variance = random.randint(-5, 2) * 0.01
+else :
+	tertiary_eccentricity_variance = random.randint(-2, 4) * 0.01
+
+tertiary_eccentricity_final = tertiary_eccentricity + tertiary_eccentricity_variance
+tertiary_separation_min = (1 - tertiary_eccentricity_final) * tertiary_separation_final
+tertiary_separation_max = (1 + tertiary_eccentricity_final) * tertiary_separation_final
+
+tertiary_companion = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6)
+tertiary_companion_number = 0
+
+if 10 < tertiary_companion and tertiary_orbit_separation == "Distant" :
+	tertiary_companion_roll = random.randint(1, 6) - 1
+	if tertiary_companion_roll == 0 :
+		tertiary_companion_number_semi = tertiary_number
+	elif tertiary_companion_roll == 1 :
+		tertiary_companion_number_semi = tertiary_number + random.randint(1, 6)
+	elif tertiary_companion_roll == 2 :
+		tertiary_companion_number_semi = tertiary_number + random.randint(1, 6) + random.randint(1, 6)
+	elif tertiary_companion_roll == 3 :
+		tertiary_companion_number_semi = tertiary_number + random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6)
+	elif tertiary_companion_roll == 4 :
+		tertiary_companion_number_semi = tertiary_number + random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6)
+	else :
+		tertiary_companion_number_semi = tertiary_number + random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6)
+	if tertiary_companion_number_semi > 33 :
+		tertiary_companion_number = 33
+	else :
+		tertiary_campanion_number = tertiary_companion_number_semi
+	tertiary_companion_mass = star_mass[tertiary_companion_number]
+	tertiary_companion_type = star_type[tertiary_companion_number]
+	tertiary_companion_temp = star_temp[tertiary_companion_number]
+	tertiary_companion_lmin = star_lmin[tertiary_companion_number]
+	tertiary_companion_lmax = star_lmax[tertiary_companion_number]
+	tertiary_companion_mspan = star_mspan[tertiary_companion_number]
+	tertiary_companion_sspan = star_sspan[tertiary_companion_number]
+	tertiary_companion_gspan = star_gspan[tertiary_companion_number]
+	if tertiary_companion_number <= 4 :
+		tertiary_companion_mass_variance = random.randint(-5, 4) * 0.01
+	elif tertiary_companion_number == 5 :
+		tertiary_companion_mass_variance = random.randint(-2, 4) * 0.01
+	else :
+		tertiary_companion_mass_variance = random.randint(-2, 2) * 0.01
+	tertiary_companion_dwarf_mass_roll = random.randint(1, 6) + random.randint(1, 6) - 2
+	if tertiary_companion_mspan + tertiary_companion_sspan + tertiary_companion_gspan < population_age_final and 0.40 < tertiary_companion_mass :
+		tertiary_companion_mass_final = 0.9 + (tertiary_companion_dwarf_mass_roll * 0.05) + (random.randint(-5, 4) * 0.01)
+	else :
+		tertiary_companion_mass_final = tertiary_companion_mass + tertiary_companion_mass_variance
+	if population_age_final < tertiary_companion_mspan :
+		tertiary_companion_lum = (tertiary_companion_lmin + ((population_age_final / tertiary_companion_mspan) * (tertiary_companion_lmax - tertiary_companion_lmin)))
+	elif (tertiary_companion_mspan) <= population_age_final <= (tertiary_companion_mspan + tertiary_companion_sspan) :
+		tertiary_companion_lum = tertiary_companion_lmax
+	elif (tertiary_companion_mspan + tertiary_companion_sspan) < population_age_final <= (tertiary_companion_mspan + tertiary_companion_sspan + tertiary_companion_gspan) :
+		tertiary_companion_lum = tertiary_companion_lmax * 25
+	elif tertiary_companion_mspan + tertiary_companion_sspan + tertiary_companion_gspan < population_age_final and tertiary_companion_mass <= 0.40 :
+		tertiary_companion_lum = tertiary_companion_lmin
+	else :
+		tertiary_companion_lum = 0.001
+	tertiary_companion_lum_variance = random.randint(90, 110) * 0.01
+	tertiary_companion_lum_final = tertiary_companion_lum * tertiary_companion_lum_variance
+	tertiary_companion_giant_temp_roll = random.randint(1, 6) + random.randint(1, 6) - 2
+	if population_age_final <= tertiary_companion_mspan :
+		tertiary_companion_temp_base = tertiary_companion_temp
+	elif tertiary_companion_mspan < population_age_final <= tertiary_companion_mspan + tertiary_companion_sspan :
+		tertiary_companion_temp_base = tertiary_companion_temp - (((population_age_final - tertiary_companion_mspan) / tertiary_companion_sspan) * (tertiary_companion_temp - 4800))
+	elif tertiary_companion_mspan + tertiary_companion_sspan < population_age_final <= tertiary_companion_mspan + tertiary_companion_sspan + tertiary_companion_sspan :
+		tertiary_companion_temp_base = 3000 + (200 * tertiary_companion_giant_temp_roll)
+	else :
+		tertiary_companion_temp_base = tertiary_companion_temp
+	tertiary_companion_temp_variance = random.randint(-100, 100)
+	if (tertiary_companion_mspan + tertiary_companion_sspan + tertiary_companion_gspan) < population_age_final and 0.40 < tertiary_companion_mass :
+		tertiary_companion_temp_final = "N/A"
+	else :
+		tertiary_companion_temp_final = tertiary_companion_temp_base + tertiary_companion_temp_variance
+	if tertiary_companion_temp_final == "N/A" :
+		tertiary_companion_radius = "N/A"
+	else :
+		tertiary_companion_radius = (155000 * tertiary_companion_lum_final**0.5) / tertiary_companion_temp_final**2
+	tertiary_companion_orbit_roll_1 = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) - 6
+	tertiary_companion_orbit_roll_2 = random.randint(1, 6) + random.randint(1, 6)
+	if tertiary_companion_orbit_roll_1 <= 6 :
+		tertiary_companion_orbit_separation = "Very Close"
+		tertiary_companion_separation = 0.05 * tertiary_companion_orbit_roll_2
+		tertiary_companion_separation_variance = random.randint(-25, 25) * 0.001
+		tertiary_companion_eccentricity_roll = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) - 6
+	elif 6 < tertiary_companion_orbit_roll_1 <= 9 :
+		tertiary_companion_orbit_separation = "Close"
+		tertiary_companion_separation = 0.5 * tertiary_companion_orbit_roll_2
+		tertiary_companion_separation_variance = random.randint(-25, 25) * 0.01
+		tertiary_companion_eccentricity_roll = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) - 4
+	elif 9 < tertiary_companion_orbit_roll_1 <= 11 :
+		tertiary_companion_orbit_separation = "Moderate"
+		tertiary_companion_separation = 2 * tertiary_companion_orbit_roll_2
+		tertiary_companion_separation_variance = random.randint(-10, 10) * 0.1
+		tertiary_companion_eccentricity_roll = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) - 2
+	elif 11 < tertiary_companion_orbit_roll_1 <= 14 :
+		tertiary_companion_orbit_separation = "Wide"
+		tertiary_companion_separation = 10 * tertiary_companion_orbit_roll_2
+		tertiary_companion_separation_variance = random.randint(-50, 50) * 0.1
+		tertiary_companion_eccentricity_roll = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6)
+	else :
+		tertiary_companion_orbit_separation = "Distant"
+		tertiary_companion_separation = 50 * tertiary_companion_orbit_roll_2
+		tertiary_companion_separation_variance = random.randint(-25, 25)
+		tertiary_companion_eccentricity_roll = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6)
+	tertiary_companion_separation_final = tertiary_companion_separation + tertiary_companion_separation_variance
+	if tertiary_companion_eccentricity_roll <= 3 :
+		tertiary_companion_eccentricity = 0
+	elif tertiary_companion_eccentricity_roll == 4 :
+		tertiary_companion_eccentricity = 0.1
+	elif tertiary_companion_eccentricity_roll == 5 :
+		tertiary_companion_eccentricity = 0.2
+	elif tertiary_companion_eccentricity_roll == 6 :
+		tertiary_companion_eccentricity = 0.3
+	elif 6 < tertiary_companion_eccentricity_roll <= 8 :
+		tertiary_companion_eccentricity = 0.4
+	elif 8 < tertiary_companion_eccentricity_roll <= 11 :
+		tertiary_companion_eccentricity = 0.5
+	elif 11 < tertiary_companion_eccentricity_roll <= 13 :
+		tertiary_companion_eccentricity = 0.6
+	elif 13 < tertiary_companion_eccentricity_roll <= 15 :
+		tertiary_companion_eccentricity = 0.7
+	elif tertiary_companion_eccentricity_roll == 16 :
+		tertiary_companion_eccentricity = 0.8
+	elif tertiary_companion_eccentricity_roll == 17 :
+		tertiary_companion_eccentricity = 0.9
+	else :
+		tertiary_companion_eccentricity = 0.95
+	if tertiary_companion_eccentricity == 0 :
+		tertiary_companion_eccentricity_variance = random.randint(0, 4) * 0.01
+	elif 0 < tertiary_companion_eccentricity <= 0.8 :
+		tertiary_companion_eccentricity_variance = random.randint(-5, 4) * 0.01
+	elif tertiary_companion_eccentricity == 0.9 :
+		tertiary_companion_eccentricity_variance = random.randint(-5, 2) * 0.01
+	else :
+		tertiary_companion_eccentricity_variance = random.randint(-2, 4) * 0.01
+	tertiary_companion_eccentricity_final = tertiary_companion_eccentricity + tertiary_companion_eccentricity_variance
+	tertiary_companion_separation_min = (1 - tertiary_companion_eccentricity_final) * tertiary_companion_separation_final
+	tertiary_companion_separation_max = (1 + tertiary_companion_eccentricity_final) * tertiary_companion_separation_final
+else :
+	None
+
 print "System Type: " + str(stars_final) + " (3d+3: " + str(stars_roll) + ")"
 print "System Age: " + str(population_age_final) + " Billion Years, " + str(population_type_final) + " (3d: " + str(population_roll_1) + ", 1d-1: " + str(population_roll_2) + ", 1d-1: " + str(population_roll_3) + ")"
 if primary_temp_final == "N/A" :
@@ -544,13 +745,20 @@ if stars_final == "Binary" or stars_final == "Trinary" :
 		print "	Type: " + str(secondary_type) + "; Temp: " + str(secondary_temp_final) + "K; Luminosity: " + str(secondary_lum_final) + "L; Radius: " + str(secondary_radius) + " AU"
 else :
 	None
+
 if 10 < secondary_companion and secondary_orbit_separation == "Distant" :
 	if secondary_companion_temp_final == "N/A" :
 		print "		Companion Star: " + str(secondary_companion_mass_final) + " solar masses (White Dwarf)"
 	else :
 		print "		Companion Star: " + str(secondary_companion_mass_final) + " (" + str(secondary_companion_mass) + ") solar masses (1d-1: " + str(secondary_companion_roll) + ", " + str(secondary_companion_roll) + "d: " + str(secondary_companion_number_semi - secondary_number) + ")"
+	if secondary_temp_final == "N/A" :
+		print "		Type: " + str(secondary_companion_type) + "; Temp: " + str(secondary_companion_temp_final) + "; Luminosity: " + str(secondary_companion_lum_final) + "L; Radius: " + str(secondary_companion_radius)
+	else :
+		print "		Type: " + str(secondary_companion_type) + "; Temp: " + str(secondary_companion_temp_final) + "K; Luminosity: " + str(secondary_companion_lum_final) + "L; Radius: " + str(secondary_companion_radius) + " AU"
+
 else :
 	None
+
 if stars_final == "Trinary" :
 	if tertiary_temp_final == "N/A" :
 		print "Tertiary Star: " + str(tertiary_mass_final) + " solar masses (White Dwarf)"
@@ -560,6 +768,18 @@ if stars_final == "Trinary" :
 		print "	Type: " + str(tertiary_type) + "; Temp: " + str(tertiary_temp_final) + "; Luminosity: " + str(tertiary_lum_final) + "L; Radius: " + str(tertiary_radius)
 	else :
 		print "	Type: " + str(tertiary_type) + "; Temp: " + str(tertiary_temp_final) + "K; Luminosity: " + str(tertiary_lum_final) + "L; Radius: " + str(tertiary_radius) + " AU"
+else :
+	None
+
+if 10 < trinary_companion and trinary_orbit_separation == "Distant" :
+	if trinary_companion_temp_final == "N/A" :
+		print "		Companion Star: " + str(trinary_companion_mass_final) + " solar masses (White Dwarf)"
+	else :
+		print "		Companion Star: " + str(trinary_companion_mass_final) + " (" + str(trinary_companion_mass) + ") solar masses (1d-1: " + str(trinary_companion_roll) + ", " + str(trinary_companion_roll) + "d: " + str(trinary_companion_number_semi - trinary_number) + ")"
+	if secondary_temp_final == "N/A" :
+		print "		Type: " + str(trinary_companion_type) + "; Temp: " + str(trinary_companion_temp_final) + "; Luminosity: " + str(trinary_companion_lum_final) + "L; Radius: " + str(trinary_companion_radius)
+	else :
+		print "		Type: " + str(trinary_companion_type) + "; Temp: " + str(trinary_companion_temp_final) + "K; Luminosity: " + str(trinary_companion_lum_final) + "L; Radius: " + str(trinary_companion_radius) + " AU"
 else :
 	None
 
