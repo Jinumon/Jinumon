@@ -743,7 +743,6 @@ if stars_final == "Binary" or stars_final == "Trinary" :
 		print "	Type: " + str(secondary_type) + "; Temp: " + str(secondary_temp_final) + "; Luminosity: " + str(secondary_lum_final) + "L; Radius: " + str(secondary_radius)
 	else :
 		print "	Type: " + str(secondary_type) + "; Temp: " + str(secondary_temp_final) + "K; Luminosity: " + str(secondary_lum_final) + "L; Radius: " + str(secondary_radius) + " AU"
-	print "	Separation: " + str(secondary_orbit_separation) + "; Orbital Radius
 else :
 	None
 
