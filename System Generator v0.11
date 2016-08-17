@@ -751,7 +751,7 @@ if 10 < secondary_companion and secondary_orbit_separation == "Distant" and (sta
 		print "--Companion Star: (3d: " + str(secondary_companion) + ") " + str(secondary_companion_mass_final) + " solar masses (White Dwarf)"
 	else :
 		print "--Companion Star: (3d: " + str(secondary_companion) + ") " + str(secondary_companion_mass_final) + " (" + str(secondary_companion_mass) + ") solar masses (1d-1: " + str(secondary_companion_roll) + ", " + str(secondary_companion_roll) + "d: " + str(secondary_companion_number_semi - secondary_number) + ")"
-	if secondary_temp_final == "N/A" :
+	if secondary_companion_temp_final == "N/A" :
 		print "	--Type: " + str(secondary_companion_type) + "; Temp: " + str(secondary_companion_temp_final) + "; Luminosity: " + str(secondary_companion_lum_final) + "L; Radius: " + str(secondary_companion_radius)
 	else :
 		print "	--Type: " + str(secondary_companion_type) + "; Temp: " + str(secondary_companion_temp_final) + "K; Luminosity: " + str(secondary_companion_lum_final) + "L; Radius: " + str(secondary_companion_radius) + " AU"
