@@ -746,7 +746,7 @@ if stars_final == "Binary" or stars_final == "Trinary" :
 else :
 	None
 
-if 10 < secondary_companion and secondary_orbit_separation == "Distant" and (stars_final == "Binary" or stars_final == "Trinary" :
+if 10 < secondary_companion and secondary_orbit_separation == "Distant" and (stars_final == "Binary" or stars_final == "Trinary") :
 	if secondary_companion_temp_final == "N/A" :
 		print "	Companion Star: " + str(secondary_companion_mass_final) + " solar masses (White Dwarf)"
 	else :
