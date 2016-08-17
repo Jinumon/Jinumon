@@ -771,15 +771,15 @@ if stars_final == "Trinary" :
 else :
 	None
 
-if 10 < trinary_companion and trinary_orbit_separation == "Distant" :
-	if trinary_companion_temp_final == "N/A" :
-		print "		Companion Star: " + str(trinary_companion_mass_final) + " solar masses (White Dwarf)"
+if 10 < tertiary_companion and tertiary_orbit_separation == "Distant" :
+	if tertiary_companion_temp_final == "N/A" :
+		print "		Companion Star: " + str(tertiary_companion_mass_final) + " solar masses (White Dwarf)"
 	else :
-		print "		Companion Star: " + str(trinary_companion_mass_final) + " (" + str(trinary_companion_mass) + ") solar masses (1d-1: " + str(trinary_companion_roll) + ", " + str(trinary_companion_roll) + "d: " + str(trinary_companion_number_semi - trinary_number) + ")"
-	if secondary_temp_final == "N/A" :
-		print "		Type: " + str(trinary_companion_type) + "; Temp: " + str(trinary_companion_temp_final) + "; Luminosity: " + str(trinary_companion_lum_final) + "L; Radius: " + str(trinary_companion_radius)
+		print "		Companion Star: " + str(tertiary_companion_mass_final) + " (" + str(tertiary_companion_mass) + ") solar masses (1d-1: " + str(tertiary_companion_roll) + ", " + str(tertiary_companion_roll) + "d: " + str(tertiary_companion_number_semi - tertiary_number) + ")"
+	if tertiary_temp_final == "N/A" :
+		print "		Type: " + str(tertiary_companion_type) + "; Temp: " + str(tertiary_companion_temp_final) + "; Luminosity: " + str(tertiary_companion_lum_final) + "L; Radius: " + str(tertiary_companion_radius)
 	else :
-		print "		Type: " + str(trinary_companion_type) + "; Temp: " + str(trinary_companion_temp_final) + "K; Luminosity: " + str(trinary_companion_lum_final) + "L; Radius: " + str(trinary_companion_radius) + " AU"
+		print "		Type: " + str(tertiary_companion_type) + "; Temp: " + str(tertiary_companion_temp_final) + "K; Luminosity: " + str(tertiary_companion_lum_final) + "L; Radius: " + str(tertiary_companion_radius) + " AU"
 else :
 	None
 
