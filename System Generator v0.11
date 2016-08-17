@@ -782,13 +782,3 @@ if 10 < tertiary_companion and tertiary_orbit_separation == "Distant" and stars_
 		print "		Type: " + str(tertiary_companion_type) + "; Temp: " + str(tertiary_companion_temp_final) + "K; Luminosity: " + str(tertiary_companion_lum_final) + "L; Radius: " + str(tertiary_companion_radius) + " AU"
 else :
 	None
-
-if 10 < secondary_companion and secondary_orbit_separation == "Distant" :
-	print "Yes"
-else :
-	print "No"
-
-if 10 < tertiary_companion and tertiary_orbit_separation == "Distant" :
-	print "Yes"
-else :
-	print "No"
