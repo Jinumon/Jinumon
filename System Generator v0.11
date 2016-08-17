@@ -743,18 +743,19 @@ if stars_final == "Binary" or stars_final == "Trinary" :
 		print "	Type: " + str(secondary_type) + "; Temp: " + str(secondary_temp_final) + "; Luminosity: " + str(secondary_lum_final) + "L; Radius: " + str(secondary_radius)
 	else :
 		print "	Type: " + str(secondary_type) + "; Temp: " + str(secondary_temp_final) + "K; Luminosity: " + str(secondary_lum_final) + "L; Radius: " + str(secondary_radius) + " AU"
+	print "	Separation: " + str(secondary_orbit_separation) + "; Orbital Radius
 else :
 	None
 
 if 10 < secondary_companion and secondary_orbit_separation == "Distant" and (stars_final == "Binary" or stars_final == "Trinary") :
 	if secondary_companion_temp_final == "N/A" :
-		print "	Companion Star: " + str(secondary_companion_mass_final) + " solar masses (White Dwarf)"
+		print "--Companion Star: (3d: " + str(secondary_companion) + ") " + str(secondary_companion_mass_final) + " solar masses (White Dwarf)"
 	else :
-		print "	Companion Star: " + str(secondary_companion_mass_final) + " (" + str(secondary_companion_mass) + ") solar masses (1d-1: " + str(secondary_companion_roll) + ", " + str(secondary_companion_roll) + "d: " + str(secondary_companion_number_semi - secondary_number) + ")"
+		print "--Companion Star: (3d: " + str(secondary_companion) + ") " + str(secondary_companion_mass_final) + " (" + str(secondary_companion_mass) + ") solar masses (1d-1: " + str(secondary_companion_roll) + ", " + str(secondary_companion_roll) + "d: " + str(secondary_companion_number_semi - secondary_number) + ")"
 	if secondary_temp_final == "N/A" :
-		print "		Type: " + str(secondary_companion_type) + "; Temp: " + str(secondary_companion_temp_final) + "; Luminosity: " + str(secondary_companion_lum_final) + "L; Radius: " + str(secondary_companion_radius)
+		print "	--Type: " + str(secondary_companion_type) + "; Temp: " + str(secondary_companion_temp_final) + "; Luminosity: " + str(secondary_companion_lum_final) + "L; Radius: " + str(secondary_companion_radius)
 	else :
-		print "		Type: " + str(secondary_companion_type) + "; Temp: " + str(secondary_companion_temp_final) + "K; Luminosity: " + str(secondary_companion_lum_final) + "L; Radius: " + str(secondary_companion_radius) + " AU"
+		print "	--Type: " + str(secondary_companion_type) + "; Temp: " + str(secondary_companion_temp_final) + "K; Luminosity: " + str(secondary_companion_lum_final) + "L; Radius: " + str(secondary_companion_radius) + " AU"
 
 else :
 	None
@@ -773,12 +774,12 @@ else :
 
 if 10 < tertiary_companion and tertiary_orbit_separation == "Distant" and stars_final == "Trinary" :
 	if tertiary_companion_temp_final == "N/A" :
-		print "	Companion Star: " + str(tertiary_companion_mass_final) + " solar masses (White Dwarf)"
+		print "--Companion Star: (3d: " + str(tertiary_companion) + ") " + str(tertiary_companion_mass_final) + " solar masses (White Dwarf)"
 	else :
-		print "	Companion Star: " + str(tertiary_companion_mass_final) + " (" + str(tertiary_companion_mass) + ") solar masses (1d-1: " + str(tertiary_companion_roll) + ", " + str(tertiary_companion_roll) + "d: " + str(tertiary_companion_number_semi - tertiary_number) + ")"
+		print "--Companion Star: (3d: " + str(tertiary_companion) + ") " + str(tertiary_companion_mass_final) + " (" + str(tertiary_companion_mass) + ") solar masses (1d-1: " + str(tertiary_companion_roll) + ", " + str(tertiary_companion_roll) + "d: " + str(tertiary_companion_number_semi - tertiary_number) + ")"
 	if tertiary_companion_temp_final == "N/A" :
-		print "		Type: " + str(tertiary_companion_type) + "; Temp: " + str(tertiary_companion_temp_final) + "; Luminosity: " + str(tertiary_companion_lum_final) + "L; Radius: " + str(tertiary_companion_radius)
+		print "	--Type: " + str(tertiary_companion_type) + "; Temp: " + str(tertiary_companion_temp_final) + "; Luminosity: " + str(tertiary_companion_lum_final) + "L; Radius: " + str(tertiary_companion_radius)
 	else :
-		print "		Type: " + str(tertiary_companion_type) + "; Temp: " + str(tertiary_companion_temp_final) + "K; Luminosity: " + str(tertiary_companion_lum_final) + "L; Radius: " + str(tertiary_companion_radius) + " AU"
+		print "	--Type: " + str(tertiary_companion_type) + "; Temp: " + str(tertiary_companion_temp_final) + "K; Luminosity: " + str(tertiary_companion_lum_final) + "L; Radius: " + str(tertiary_companion_radius) + " AU"
 else :
 	None
