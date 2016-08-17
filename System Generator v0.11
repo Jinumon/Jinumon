@@ -543,6 +543,13 @@ if stars_final == "Binary" or stars_final == "Trinary" :
 		print "	Type: " + str(secondary_type) + "; Temp: " + str(secondary_temp_final) + "K; Luminosity: " + str(secondary_lum_final) + "L; Radius: " + str(secondary_radius) + " AU"
 else :
 	None
+if 10 < secondary_companion and secondary_orbit_separation == "Distant" :
+	if secondary_companion_temp_final == "N/A" :
+		print "		Companion Star: " + str(secondary_companion_mass_final) + " solar masses (White Dwarf)"
+	else :
+		print "		Companion Star: " + str(secondary_companion_mass_final) + " (" + str(secondary_companion_mass) + ") solar masses (1d-1: " + str(secondary_companion_roll) + ", " + str(secondary_companion_roll) + "d: " + str(secondary_companion_number_semi - secondary_number) + ")"
+else :
+	None
 if stars_final == "Trinary" :
 	if tertiary_temp_final == "N/A" :
 		print "Tertiary Star: " + str(tertiary_mass_final) + " solar masses (White Dwarf)"
