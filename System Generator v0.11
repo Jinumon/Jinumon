@@ -390,72 +390,72 @@ if 10 < secondary_companion :
 	else :
 		secondary_companion_radius = (155000 * secondary_companion_lum_final**0.5) / secondary_companion_temp_final**2
 
-secondary_orbit_roll_1 = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6)
-secondary_orbit_roll_2 = random.randint(1, 6) + random.randint(1, 6)
+	secondary_companion_orbit_roll_1 = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) - 6
+	secondary_companion_orbit_roll_2 = random.randint(1, 6) + random.randint(1, 6)
+	
+	if secondary_companion_orbit_roll_1 <= 6 :
+		secondary_companion_orbit_separation = "Very Close"
+		secondary_companion_separation = 0.05 * secondary_companion_orbit_roll_2
+		secondary_companion_separation_variance = random.randint(-25, 25) * 0.001
+		secondary_companion_eccentricity_roll = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) - 6
+	elif 6 < secondary_companion_orbit_roll_1 <= 9 :
+		secondary_companion_orbit_separation = "Close"
+		secondary_companion_separation = 0.5 * secondary_companion_orbit_roll_2
+		secondary_companion_separation_variance = random.randint(-25, 25) * 0.01
+		secondary_companion_eccentricity_roll = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) - 4
+	elif 9 < secondary_companion_orbit_roll_1 <= 11 :
+		secondary_companion_orbit_separation = "Moderate"
+		secondary_companion_separation = 2 * secondary_companion_orbit_roll_2
+		secondary_companion_separation_variance = random.randint(-10, 10) * 0.1
+		secondary_companion_eccentricity_roll = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) - 2
+	elif 11 < secondary_companion_orbit_roll_1 <= 14 :
+		secondary_companion_orbit_separation = "Wide"
+		secondary_companion_separation = 10 * secondary_companion_orbit_roll_2
+		secondary_companion_separation_variance = random.randint(-50, 50) * 0.1
+		secondary_companion_eccentricity_roll = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6)
+	else :
+		secondary_companion_orbit_separation = "Distant"
+		secondary_companion_separation = 50 * secondary_companion_orbit_roll_2
+		secondary_companion_separation_variance = random.randint(-25, 25)
+		secondary_companion_eccentricity_roll = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6)
 
-if secondary_orbit_roll_1 <= 6 :
-	secondary_orbit_separation = "Very Close"
-	secondary_separation = 0.05 * secondary_orbit_roll_2
-	secondary_separation_variance = random.randint(-25, 25) * 0.001
-	secondary_eccentricity_roll = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) - 6
-elif 6 < secondary_orbit_roll_1 <= 9 :
-	secondary_orbit_separation = "Close"
-	secondary_separation = 0.5 * secondary_orbit_roll_2
-	secondary_separation_variance = random.randint(-25, 25) * 0.01
-	secondary_eccentricity_roll = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) - 4
-elif 9 < secondary_orbit_roll_1 <= 11 :
-	secondary_orbit_separation = "Moderate"
-	secondary_separation = 2 * secondary_orbit_roll_2
-	secondary_separation_variance = random.randint(-10, 10) * 0.1
-	secondary_eccentricity_roll = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6) - 2
-elif 11 < secondary_orbit_roll_1 <= 14 :
-	secondary_orbit_separation = "Wide"
-	secondary_separation = 10 * secondary_orbit_roll_2
-	secondary_separation_variance = random.randint(-50, 50) * 0.1
-	secondary_eccentricity_roll = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6)
-else :
-	secondary_orbit_separation = "Distant"
-	secondary_separation = 50 * secondary_orbit_roll_2
-	secondary_separation_variance = random.randint(-25, 25)
-	secondary_eccentricity_roll = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6)
+	secondary_companion_separation_final = secondary_companion_separation + secondary_companion_separation_variance
 
-secondary_separation_final = secondary_separation + secondary_separation_variance
+	if secondary_companion_eccentricity_roll <= 3 :
+		secondary_companion_eccentricity = 0
+	elif secondary_companion_eccentricity_roll == 4 :
+		secondary_companion_eccentricity = 0.1
+	elif secondary_companion_eccentricity_roll == 5 :
+		secondary_companion_eccentricity = 0.2
+	elif secondary_companion_eccentricity_roll == 6 :
+		secondary_companion_eccentricity = 0.3
+	elif 6 < secondary_companion_eccentricity_roll <= 8 :
+		secondary_companion_eccentricity = 0.4
+	elif 8 < secondary_companion_eccentricity_roll <= 11 :
+		secondary_companion_eccentricity = 0.5
+	elif 11 < secondary_companion_eccentricity_roll <= 13 :
+		secondary_companion_eccentricity = 0.6
+	elif 13 < secondary_companion_eccentricity_roll <= 15 :
+		secondary_companion_eccentricity = 0.7
+	elif secondary_companion_eccentricity_roll == 16 :
+		secondary_companion_eccentricity = 0.8
+	elif secondary_companion_eccentricity_roll == 17 :
+		secondary_companion_eccentricity = 0.9
+	else :
+		secondary_companion_eccentricity = 0.95
 
-if secondary_eccentricity_roll <= 3 :
-	secondary_eccentricity = 0
-elif secondary_eccentricity_roll == 4 :
-	secondary_eccentricity = 0.1
-elif secondary_eccentricity_roll == 5 :
-	secondary_eccentricity = 0.2
-elif secondary_eccentricity_roll == 6 :
-	secondary_eccentricity = 0.3
-elif 6 < secondary_eccentricity_roll <= 8 :
-	secondary_eccentricity = 0.4
-elif 8 < secondary_eccentricity_roll <= 11 :
-	secondary_eccentricity = 0.5
-elif 11 < secondary_eccentricity_roll <= 13 :
-	secondary_eccentricity = 0.6
-elif 13 < secondary_eccentricity_roll <= 15 :
-	secondary_eccentricity = 0.7
-elif secondary_eccentricity_roll == 16 :
-	secondary_eccentricity = 0.8
-elif secondary_eccentricity_roll == 17 :
-	secondary_eccentricity = 0.9
-else :
-	secondary_eccentricity = 0.95
+	if secondary_companion_eccentricity == 0 :
+		secondary_companion_eccentricity_variance = random.randint(0, 4) * 0.01
+	elif 0 < secondary_companion_eccentricity <= 0.8 :
+		secondary_companion_eccentricity_variance = random.randint(-5, 4) * 0.01
+	elif secondary_companion_eccentricity == 0.9 :
+		secondary_companion_eccentricity_variance = random.randint(-5, 2) * 0.01
+	else :
+		secondary_companion_eccentricity_variance = random.randint(-2, 4) * 0.01
 
-if secondary_eccentricity == 0 :
-	secondary_eccentricity_variance = random.randint(0, 4) * 0.01
-elif 0 < secondary_eccentricity <= 0.8 :
-	secondary_eccentricity_variance = random.randint(-5, 4) * 0.01
-elif secondary_eccentricity == 0.9 :
-	secondary_eccentricity_variance = random.randint(-5, 2) * 0.01
-else :
-	secondary_eccentricity_variance = random.randint(-2, 4) * 0.01
-
-secondary_eccentricity_final = secondary_eccentricity + secondary_eccentricity_variance
-secondary_separation_min = (1 - secondary_eccentricity_final) * secondary_separation_final
-secondary_separation_max = (1 + secondary_eccentricity_final) * secondary_separation_final
+	secondary_companion_eccentricity_final = secondary_companion_eccentricity + secondary_companion_eccentricity_variance
+	secondary_companion_separation_min = (1 - secondary_companion_eccentricity_final) * secondary_companion_separation_final
+	secondary_companion_separation_max = (1 + secondary_companion_eccentricity_final) * secondary_companion_separation_final
 else :
 	None
 
