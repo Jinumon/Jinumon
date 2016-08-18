@@ -743,19 +743,34 @@ if stars_final == "Binary" or stars_final == "Trinary" :
 		print "	Type: " + str(secondary_type) + "; Temp: " + str(secondary_temp_final) + "; Luminosity: " + str(secondary_lum_final) + "L; Radius: " + str(secondary_radius)
 	else :
 		print "	Type: " + str(secondary_type) + "; Temp: " + str(secondary_temp_final) + "K; Luminosity: " + str(secondary_lum_final) + "L; Radius: " + str(secondary_radius) + " AU"
+	if secondary_orbit_separation == "Very Close" :
+		print "	Separation: Very Close (3d: " + str(secondary_orbit_roll_1) + "); Orbital Radius: " + str(secondary_separation_final) + " AU (2d: " + str(secondary_orbit_roll_2) + "); Eccentricity: " + str(secondary_eccentricity_final) + "(3d-6: " + str(secondary_eccentricity_roll) + ")"
+	elif secondary_orbit_separation == "Close" :
+		print "	Separation: Close (3d: " + str(secondary_orbit_roll_1) + "); Orbital Radius: " + str(secondary_separation_final) + " AU (2d: " + str(secondary_orbit_roll_2) + "); Eccentricity: " + str(secondary_eccentricity_final) + "(3d-4: " + str(secondary_eccentricity_roll) + ")"
+	elif secondary_orbit_separation == "Moderate" :
+		print "	Separation: Moderate (3d: " + str(secondary_orbit_roll_1) + "); Orbital Radius: " + str(secondary_separation_final) + " AU (2d: " + str(secondary_orbit_roll_2) + "); Eccentricity: " + str(secondary_eccentricity_final) + "(3d-2: " + str(secondary_eccentricity_roll) + ")"
+	else :
+		print "	Separation: " + str(secondary_orbit_separation) + " (3d: " + str(secondary_orbit_roll_1) + "); Orbital Radius: " + str(secondary_separation_final) + " AU (2d: " + str(secondary_orbit_roll_2) + "); Eccentricity: " + str(secondary_eccentricity_final) + "(3d: " + str(secondary_eccentricity_roll) + ")"
 else :
 	None
 
 if 10 < secondary_companion and secondary_orbit_separation == "Distant" and (stars_final == "Binary" or stars_final == "Trinary") :
 	if secondary_companion_temp_final == "N/A" :
-		print "    Companion Star: (3d: " + str(secondary_companion) + ") " + str(secondary_companion_mass_final) + " solar masses (White Dwarf)"
+		print "  Companion Star: (3d: " + str(secondary_companion) + ") " + str(secondary_companion_mass_final) + " solar masses (White Dwarf)"
 	else :
-		print "    Companion Star: (3d: " + str(secondary_companion) + ") " + str(secondary_companion_mass_final) + " (" + str(secondary_companion_mass) + ") solar masses (1d-1: " + str(secondary_companion_roll) + ", " + str(secondary_companion_roll) + "d: " + str(secondary_companion_number_semi - secondary_number) + ")"
+		print "  Companion Star: (3d: " + str(secondary_companion) + ") " + str(secondary_companion_mass_final) + " (" + str(secondary_companion_mass) + ") solar masses (1d-1: " + str(secondary_companion_roll) + ", " + str(secondary_companion_roll) + "d: " + str(secondary_companion_number_semi - secondary_number) + ")"
 	if secondary_companion_temp_final == "N/A" :
-		print "	    Type: " + str(secondary_companion_type) + "; Temp: " + str(secondary_companion_temp_final) + "; Luminosity: " + str(secondary_companion_lum_final) + "L; Radius: " + str(secondary_companion_radius)
+		print "	  Type: " + str(secondary_companion_type) + "; Temp: " + str(secondary_companion_temp_final) + "; Luminosity: " + str(secondary_companion_lum_final) + "L; Radius: " + str(secondary_companion_radius)
 	else :
-		print "	    Type: " + str(secondary_companion_type) + "; Temp: " + str(secondary_companion_temp_final) + "K; Luminosity: " + str(secondary_companion_lum_final) + "L; Radius: " + str(secondary_companion_radius) + " AU"
-
+		print "	  Type: " + str(secondary_companion_type) + "; Temp: " + str(secondary_companion_temp_final) + "K; Luminosity: " + str(secondary_companion_lum_final) + "L; Radius: " + str(secondary_companion_radius) + " AU"
+	if secondary_companion_orbit_separation == "Very Close" :
+		print "	Separation: Very Close (3d-6: " + str(secondary_companion_orbit_roll_1) + "); Orbital Radius: " + str(secondary_companion_separation_final) + " AU (2d: " + str(secondary_companion_orbit_roll_2) + "); Eccentricity: " + str(secondary_companion_eccentricity_final) + "(3d-6: " + str(secondary_companion_eccentricity_roll) + ")"
+	elif secondary_companion_orbit_separation == "Close" :
+		print "	Separation: Close (3d-6: " + str(secondary_companion_orbit_roll_1) + "); Orbital Radius: " + str(secondary_companion_separation_final) + " AU (2d: " + str(secondary_companion_orbit_roll_2) + "); Eccentricity: " + str(secondary_companion_eccentricity_final) + "(3d-4: " + str(secondary_companion_eccentricity_roll) + ")"
+	elif secondary_companion_orbit_separation == "Moderate" :
+		print "	Separation: Moderate (3d-6: " + str(secondary_companion_orbit_roll_1) + "); Orbital Radius: " + str(secondary_companion_separation_final) + " AU (2d: " + str(secondary_companion_orbit_roll_2) + "); Eccentricity: " + str(secondary_companion_eccentricity_final) + "(3d-2: " + str(secondary_companion_eccentricity_roll) + ")"
+	else :
+		print "	Separation: " + str(secondary_companion_orbit_separation) + " (3d-6: " + str(secondary_companion_orbit_roll_1) + "); Orbital Radius: " + str(secondary_companion_separation_final) + " AU (2d: " + str(secondary_companion_orbit_roll_2) + "); Eccentricity: " + str(secondary_companion_eccentricity_final) + "(3d: " + str(secondary_companion_eccentricity_roll) + ")"
 else :
 	None
 
@@ -764,21 +779,37 @@ if stars_final == "Trinary" :
 		print "Tertiary Star: " + str(tertiary_mass_final) + " solar masses (White Dwarf)"
 	else :
 		print "Tertiary Star: " + str(tertiary_mass_final) + " (" + str(tertiary_mass) + ") solar masses (1d-1: " + str(tertiary_star_roll) + ", " + str(tertiary_star_roll) + "d: " + str(tertiary_number_semi - primary_number) + ")"
-	if secondary_temp_final == "N/A" :
+	if tertiary_temp_final == "N/A" :
 		print "	Type: " + str(tertiary_type) + "; Temp: " + str(tertiary_temp_final) + "; Luminosity: " + str(tertiary_lum_final) + "L; Radius: " + str(tertiary_radius)
 	else :
 		print "	Type: " + str(tertiary_type) + "; Temp: " + str(tertiary_temp_final) + "K; Luminosity: " + str(tertiary_lum_final) + "L; Radius: " + str(tertiary_radius) + " AU"
+	if tertiary_orbit_separation == "Very Close" :
+		print "	Separation: Very Close (3d+6: " + str(tertiary_orbit_roll_1) + "); Orbital Radius: " + str(tertiary_separation_final) + " AU (2d: " + str(tertiary_orbit_roll_2) + "); Eccentricity: " + str(tertiary_eccentricity_final) + "(3d-6: " + str(tertiary_eccentricity_roll) + ")"
+	elif tertiary_orbit_separation == "Close" :
+		print "	Separation: Close (3d+6: " + str(tertiary_orbit_roll_1) + "); Orbital Radius: " + str(tertiary_separation_final) + " AU (2d: " + str(tertiary_orbit_roll_2) + "); Eccentricity: " + str(tertiary_eccentricity_final) + "(3d-4: " + str(tertiary_eccentricity_roll) + ")"
+	elif tertiary_orbit_separation == "Moderate" :
+		print "	Separation: Moderate (3d+6: " + str(tertiary_orbit_roll_1) + "); Orbital Radius: " + str(tertiary_separation_final) + " AU (2d: " + str(tertiary_orbit_roll_2) + "); Eccentricity: " + str(tertiary_eccentricity_final) + "(3d-2: " + str(tertiary_eccentricity_roll) + ")"
+	else :
+		print "	Separation: " + str(tertiary_orbit_separation) + " (3d+6: " + str(tertiary_orbit_roll_1) + "); Orbital Radius: " + str(tertiary_separation_final) + " AU (2d: " + str(tertiary_orbit_roll_2) + "); Eccentricity: " + str(tertiary_eccentricity_final) + "(3d: " + str(tertiary_eccentricity_roll) + ")"
 else :
 	None
 
 if 10 < tertiary_companion and tertiary_orbit_separation == "Distant" and stars_final == "Trinary" :
 	if tertiary_companion_temp_final == "N/A" :
-		print "    Companion Star: (3d: " + str(tertiary_companion) + ") " + str(tertiary_companion_mass_final) + " solar masses (White Dwarf)"
+		print "  Companion Star: (3d: " + str(tertiary_companion) + ") " + str(tertiary_companion_mass_final) + " solar masses (White Dwarf)"
 	else :
-		print "    Companion Star: (3d: " + str(tertiary_companion) + ") " + str(tertiary_companion_mass_final) + " (" + str(tertiary_companion_mass) + ") solar masses (1d-1: " + str(tertiary_companion_roll) + ", " + str(tertiary_companion_roll) + "d: " + str(tertiary_companion_number_semi - tertiary_number) + ")"
+		print "  Companion Star: (3d: " + str(tertiary_companion) + ") " + str(tertiary_companion_mass_final) + " (" + str(tertiary_companion_mass) + ") solar masses (1d-1: " + str(tertiary_companion_roll) + ", " + str(tertiary_companion_roll) + "d: " + str(tertiary_companion_number_semi - tertiary_number) + ")"
 	if tertiary_companion_temp_final == "N/A" :
-		print "	    Type: " + str(tertiary_companion_type) + "; Temp: " + str(tertiary_companion_temp_final) + "; Luminosity: " + str(tertiary_companion_lum_final) + "L; Radius: " + str(tertiary_companion_radius)
+		print "	  Type: " + str(tertiary_companion_type) + "; Temp: " + str(tertiary_companion_temp_final) + "; Luminosity: " + str(tertiary_companion_lum_final) + "L; Radius: " + str(tertiary_companion_radius)
 	else :
-		print "	    Type: " + str(tertiary_companion_type) + "; Temp: " + str(tertiary_companion_temp_final) + "K; Luminosity: " + str(tertiary_companion_lum_final) + "L; Radius: " + str(tertiary_companion_radius) + " AU"
+		print "	  Type: " + str(tertiary_companion_type) + "; Temp: " + str(tertiary_companion_temp_final) + "K; Luminosity: " + str(tertiary_companion_lum_final) + "L; Radius: " + str(tertiary_companion_radius) + " AU"
+	if tertiary_companion_orbit_separation == "Very Close" :
+		print "	  Separation: Very Close (3d-6: " + str(tertiary_companion_orbit_roll_1) + "); Orbital Radius: " + str(tertiary_companion_separation_final) + " AU (2d: " + str(tertiary_companion_orbit_roll_2) + "); Eccentricity: " + str(tertiary_companion_eccentricity_final) + "(3d-6: " + str(tertiary_companion_eccentricity_roll) + ")"
+	elif tertiary_companion_orbit_separation == "Close" :
+		print "	  Separation: Close (3d-6: " + str(tertiary_companion_orbit_roll_1) + "); Orbital Radius: " + str(tertiary_companion_separation_final) + " AU (2d: " + str(tertiary_companion_orbit_roll_2) + "); Eccentricity: " + str(tertiary_companion_eccentricity_final) + "(3d-4: " + str(tertiary_companion_eccentricity_roll) + ")"
+	elif tertiary_companion_orbit_separation == "Moderate" :
+		print "	  Separation: Moderate (3d-6: " + str(tertiary_companion_orbit_roll_1) + "); Orbital Radius: " + str(tertiary_companion_separation_final) + " AU (2d: " + str(tertiary_companion_orbit_roll_2) + "); Eccentricity: " + str(tertiary_companion_eccentricity_final) + "(3d-2: " + str(tertiary_companion_eccentricity_roll) + ")"
+	else :
+		print "	  Separation: " + str(tertiary_companion_orbit_separation) + " (3d-6: " + str(tertiary_companion_orbit_roll_1) + "); Orbital Radius: " + str(tertiary_companion_separation_final) + " AU (2d: " + str(tertiary_companion_orbit_roll_2) + "); Eccentricity: " + str(tertiary_companion_eccentricity_final) + "(3d: " + str(tertiary_companion_eccentricity_roll) + ")"
 else :
 	None
