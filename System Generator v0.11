@@ -744,13 +744,13 @@ if stars_final == "Binary" or stars_final == "Trinary" :
 	else :
 		print "	Type: " + str(secondary_type) + "; Temp: " + str(secondary_temp_final) + "K; Luminosity: " + str(secondary_lum_final) + "L; Radius: " + str(secondary_radius) + " AU"
 	if secondary_orbit_separation == "Very Close" :
-		print "	Separation: Very Close (3d: " + str(secondary_orbit_roll_1) + "); Orbital Radius: " + str(secondary_separation_final) + " AU (2d: " + str(secondary_orbit_roll_2) + "); Eccentricity: " + str(secondary_eccentricity_final) + "(3d-6: " + str(secondary_eccentricity_roll) + ")"
+		print "	Separation: Very Close (3d: " + str(secondary_orbit_roll_1) + "); Orbital Radius: " + str(secondary_separation_final) + " AU (2d: " + str(secondary_orbit_roll_2) + "); Eccentricity: " + str(secondary_eccentricity_final) + "(3d-6: " + str(secondary_eccentricity_roll) + "); Min/Max Separation: " + str(secondary_separation_min) + "-" + str(secondary_separation_max) + " AU"
 	elif secondary_orbit_separation == "Close" :
-		print "	Separation: Close (3d: " + str(secondary_orbit_roll_1) + "); Orbital Radius: " + str(secondary_separation_final) + " AU (2d: " + str(secondary_orbit_roll_2) + "); Eccentricity: " + str(secondary_eccentricity_final) + "(3d-4: " + str(secondary_eccentricity_roll) + ")"
+		print "	Separation: Close (3d: " + str(secondary_orbit_roll_1) + "); Orbital Radius: " + str(secondary_separation_final) + " AU (2d: " + str(secondary_orbit_roll_2) + "); Eccentricity: " + str(secondary_eccentricity_final) + "(3d-4: " + str(secondary_eccentricity_roll) + "); Min/Max Separation: " + str(secondary_companion_separation_min) + "-" + str(secondary_companion_separation_max) + " AU"
 	elif secondary_orbit_separation == "Moderate" :
-		print "	Separation: Moderate (3d: " + str(secondary_orbit_roll_1) + "); Orbital Radius: " + str(secondary_separation_final) + " AU (2d: " + str(secondary_orbit_roll_2) + "); Eccentricity: " + str(secondary_eccentricity_final) + "(3d-2: " + str(secondary_eccentricity_roll) + ")"
+		print "	Separation: Moderate (3d: " + str(secondary_orbit_roll_1) + "); Orbital Radius: " + str(secondary_separation_final) + " AU (2d: " + str(secondary_orbit_roll_2) + "); Eccentricity: " + str(secondary_eccentricity_final) + "(3d-2: " + str(secondary_eccentricity_roll) + "); Min/Max Separation: " + str(secondary_companion_separation_min) + "-" + str(secondary_companion_separation_max) + " AU"
 	else :
-		print "	Separation: " + str(secondary_orbit_separation) + " (3d: " + str(secondary_orbit_roll_1) + "); Orbital Radius: " + str(secondary_separation_final) + " AU (2d: " + str(secondary_orbit_roll_2) + "); Eccentricity: " + str(secondary_eccentricity_final) + "(3d: " + str(secondary_eccentricity_roll) + ")"
+		print "	Separation: " + str(secondary_orbit_separation) + " (3d: " + str(secondary_orbit_roll_1) + "); Orbital Radius: " + str(secondary_separation_final) + " AU (2d: " + str(secondary_orbit_roll_2) + "); Eccentricity: " + str(secondary_eccentricity_final) + "(3d: " + str(secondary_eccentricity_roll) + "); Min/Max Separation: " + str(secondary_companion_separation_min) + "-" + str(secondary_companion_separation_max) + " AU"
 else :
 	None
 
@@ -764,13 +764,13 @@ if 10 < secondary_companion and secondary_orbit_separation == "Distant" and (sta
 	else :
 		print "	  Type: " + str(secondary_companion_type) + "; Temp: " + str(secondary_companion_temp_final) + "K; Luminosity: " + str(secondary_companion_lum_final) + "L; Radius: " + str(secondary_companion_radius) + " AU"
 	if secondary_companion_orbit_separation == "Very Close" :
-		print "	Separation: Very Close (3d-6: " + str(secondary_companion_orbit_roll_1) + "); Orbital Radius: " + str(secondary_companion_separation_final) + " AU (2d: " + str(secondary_companion_orbit_roll_2) + "); Eccentricity: " + str(secondary_companion_eccentricity_final) + "(3d-6: " + str(secondary_companion_eccentricity_roll) + ")"
+		print "	  Separation: Very Close (3d-6: " + str(secondary_companion_orbit_roll_1) + "); Orbital Radius: " + str(secondary_companion_separation_final) + " AU (2d: " + str(secondary_companion_orbit_roll_2) + "); Eccentricity: " + str(secondary_companion_eccentricity_final) + "(3d-6: " + str(secondary_companion_eccentricity_roll) + "); Min/Max Separation: " + str(secondary_companion_separation_min) + "-" + str(secondary_companion_separation_max) + " AU"
 	elif secondary_companion_orbit_separation == "Close" :
-		print "	Separation: Close (3d-6: " + str(secondary_companion_orbit_roll_1) + "); Orbital Radius: " + str(secondary_companion_separation_final) + " AU (2d: " + str(secondary_companion_orbit_roll_2) + "); Eccentricity: " + str(secondary_companion_eccentricity_final) + "(3d-4: " + str(secondary_companion_eccentricity_roll) + ")"
+		print "	  Separation: Close (3d-6: " + str(secondary_companion_orbit_roll_1) + "); Orbital Radius: " + str(secondary_companion_separation_final) + " AU (2d: " + str(secondary_companion_orbit_roll_2) + "); Eccentricity: " + str(secondary_companion_eccentricity_final) + "(3d-4: " + str(secondary_companion_eccentricity_roll) + "); Min/Max Separation: " + str(secondary_companion_separation_min) + "-" + str(secondary_companion_separation_max) + " AU"
 	elif secondary_companion_orbit_separation == "Moderate" :
-		print "	Separation: Moderate (3d-6: " + str(secondary_companion_orbit_roll_1) + "); Orbital Radius: " + str(secondary_companion_separation_final) + " AU (2d: " + str(secondary_companion_orbit_roll_2) + "); Eccentricity: " + str(secondary_companion_eccentricity_final) + "(3d-2: " + str(secondary_companion_eccentricity_roll) + ")"
+		print "	  Separation: Moderate (3d-6: " + str(secondary_companion_orbit_roll_1) + "); Orbital Radius: " + str(secondary_companion_separation_final) + " AU (2d: " + str(secondary_companion_orbit_roll_2) + "); Eccentricity: " + str(secondary_companion_eccentricity_final) + "(3d-2: " + str(secondary_companion_eccentricity_roll) + "); Min/Max Separation: " + str(secondary_companion_separation_min) + "-" + str(secondary_companion_separation_max) + " AU"
 	else :
-		print "	Separation: " + str(secondary_companion_orbit_separation) + " (3d-6: " + str(secondary_companion_orbit_roll_1) + "); Orbital Radius: " + str(secondary_companion_separation_final) + " AU (2d: " + str(secondary_companion_orbit_roll_2) + "); Eccentricity: " + str(secondary_companion_eccentricity_final) + "(3d: " + str(secondary_companion_eccentricity_roll) + ")"
+		print "	  Separation: " + str(secondary_companion_orbit_separation) + " (3d-6: " + str(secondary_companion_orbit_roll_1) + "); Orbital Radius: " + str(secondary_companion_separation_final) + " AU (2d: " + str(secondary_companion_orbit_roll_2) + "); Eccentricity: " + str(secondary_companion_eccentricity_final) + "(3d: " + str(secondary_companion_eccentricity_roll) + "); Min/Max Separation: " + str(secondary_companion_separation_min) + "-" + str(secondary_companion_separation_max) + " AU"
 else :
 	None
 
@@ -784,13 +784,13 @@ if stars_final == "Trinary" :
 	else :
 		print "	Type: " + str(tertiary_type) + "; Temp: " + str(tertiary_temp_final) + "K; Luminosity: " + str(tertiary_lum_final) + "L; Radius: " + str(tertiary_radius) + " AU"
 	if tertiary_orbit_separation == "Very Close" :
-		print "	Separation: Very Close (3d+6: " + str(tertiary_orbit_roll_1) + "); Orbital Radius: " + str(tertiary_separation_final) + " AU (2d: " + str(tertiary_orbit_roll_2) + "); Eccentricity: " + str(tertiary_eccentricity_final) + "(3d-6: " + str(tertiary_eccentricity_roll) + ")"
+		print "	Separation: Very Close (3d+6: " + str(tertiary_orbit_roll_1) + "); Orbital Radius: " + str(tertiary_separation_final) + " AU (2d: " + str(tertiary_orbit_roll_2) + "); Eccentricity: " + str(tertiary_eccentricity_final) + "(3d-6: " + str(tertiary_eccentricity_roll) + "); Min/Max Separation: " + str(tertiary_separation_min) + "-" + str(tertiary_separation_max) + " AU"
 	elif tertiary_orbit_separation == "Close" :
-		print "	Separation: Close (3d+6: " + str(tertiary_orbit_roll_1) + "); Orbital Radius: " + str(tertiary_separation_final) + " AU (2d: " + str(tertiary_orbit_roll_2) + "); Eccentricity: " + str(tertiary_eccentricity_final) + "(3d-4: " + str(tertiary_eccentricity_roll) + ")"
+		print "	Separation: Close (3d+6: " + str(tertiary_orbit_roll_1) + "); Orbital Radius: " + str(tertiary_separation_final) + " AU (2d: " + str(tertiary_orbit_roll_2) + "); Eccentricity: " + str(tertiary_eccentricity_final) + "(3d-4: " + str(tertiary_eccentricity_roll) + "); Min/Max Separation: " + str(tertiary_separation_min) + "-" + str(tertiary_separation_max) + " AU"
 	elif tertiary_orbit_separation == "Moderate" :
-		print "	Separation: Moderate (3d+6: " + str(tertiary_orbit_roll_1) + "); Orbital Radius: " + str(tertiary_separation_final) + " AU (2d: " + str(tertiary_orbit_roll_2) + "); Eccentricity: " + str(tertiary_eccentricity_final) + "(3d-2: " + str(tertiary_eccentricity_roll) + ")"
+		print "	Separation: Moderate (3d+6: " + str(tertiary_orbit_roll_1) + "); Orbital Radius: " + str(tertiary_separation_final) + " AU (2d: " + str(tertiary_orbit_roll_2) + "); Eccentricity: " + str(tertiary_eccentricity_final) + "(3d-2: " + str(tertiary_eccentricity_roll) + "); Min/Max Separation: " + str(tertiary_separation_min) + "-" + str(tertiary_separation_max) + " AU"
 	else :
-		print "	Separation: " + str(tertiary_orbit_separation) + " (3d+6: " + str(tertiary_orbit_roll_1) + "); Orbital Radius: " + str(tertiary_separation_final) + " AU (2d: " + str(tertiary_orbit_roll_2) + "); Eccentricity: " + str(tertiary_eccentricity_final) + "(3d: " + str(tertiary_eccentricity_roll) + ")"
+		print "	Separation: " + str(tertiary_orbit_separation) + " (3d+6: " + str(tertiary_orbit_roll_1) + "); Orbital Radius: " + str(tertiary_separation_final) + " AU (2d: " + str(tertiary_orbit_roll_2) + "); Eccentricity: " + str(tertiary_eccentricity_final) + "(3d: " + str(tertiary_eccentricity_roll) + "); Min/Max Separation: " + str(tertiary_separation_min) + "-" + str(tertiary_separation_max) + " AU"
 else :
 	None
 
@@ -804,12 +804,12 @@ if 10 < tertiary_companion and tertiary_orbit_separation == "Distant" and stars_
 	else :
 		print "	  Type: " + str(tertiary_companion_type) + "; Temp: " + str(tertiary_companion_temp_final) + "K; Luminosity: " + str(tertiary_companion_lum_final) + "L; Radius: " + str(tertiary_companion_radius) + " AU"
 	if tertiary_companion_orbit_separation == "Very Close" :
-		print "	  Separation: Very Close (3d-6: " + str(tertiary_companion_orbit_roll_1) + "); Orbital Radius: " + str(tertiary_companion_separation_final) + " AU (2d: " + str(tertiary_companion_orbit_roll_2) + "); Eccentricity: " + str(tertiary_companion_eccentricity_final) + "(3d-6: " + str(tertiary_companion_eccentricity_roll) + ")"
+		print "	  Separation: Very Close (3d-6: " + str(tertiary_companion_orbit_roll_1) + "); Orbital Radius: " + str(tertiary_companion_separation_final) + " AU (2d: " + str(tertiary_companion_orbit_roll_2) + "); Eccentricity: " + str(tertiary_companion_eccentricity_final) + "(3d-6: " + str(tertiary_companion_eccentricity_roll) + "); Min/Max Separation: " + str(tertiary_companion_separation_min) + "-" + str(tertiary_companion_separation_max) + " AU"
 	elif tertiary_companion_orbit_separation == "Close" :
-		print "	  Separation: Close (3d-6: " + str(tertiary_companion_orbit_roll_1) + "); Orbital Radius: " + str(tertiary_companion_separation_final) + " AU (2d: " + str(tertiary_companion_orbit_roll_2) + "); Eccentricity: " + str(tertiary_companion_eccentricity_final) + "(3d-4: " + str(tertiary_companion_eccentricity_roll) + ")"
+		print "	  Separation: Close (3d-6: " + str(tertiary_companion_orbit_roll_1) + "); Orbital Radius: " + str(tertiary_companion_separation_final) + " AU (2d: " + str(tertiary_companion_orbit_roll_2) + "); Eccentricity: " + str(tertiary_companion_eccentricity_final) + "(3d-4: " + str(tertiary_companion_eccentricity_roll) + "); Min/Max Separation: " + str(tertiary_companion_separation_min) + "-" + str(tertiary_companion_separation_max) + " AU"
 	elif tertiary_companion_orbit_separation == "Moderate" :
-		print "	  Separation: Moderate (3d-6: " + str(tertiary_companion_orbit_roll_1) + "); Orbital Radius: " + str(tertiary_companion_separation_final) + " AU (2d: " + str(tertiary_companion_orbit_roll_2) + "); Eccentricity: " + str(tertiary_companion_eccentricity_final) + "(3d-2: " + str(tertiary_companion_eccentricity_roll) + ")"
+		print "	  Separation: Moderate (3d-6: " + str(tertiary_companion_orbit_roll_1) + "); Orbital Radius: " + str(tertiary_companion_separation_final) + " AU (2d: " + str(tertiary_companion_orbit_roll_2) + "); Eccentricity: " + str(tertiary_companion_eccentricity_final) + "(3d-2: " + str(tertiary_companion_eccentricity_roll) + "); Min/Max Separation: " + str(tertiary_companion_separation_min) + "-" + str(tertiary_companion_separation_max) + " AU"
 	else :
-		print "	  Separation: " + str(tertiary_companion_orbit_separation) + " (3d-6: " + str(tertiary_companion_orbit_roll_1) + "); Orbital Radius: " + str(tertiary_companion_separation_final) + " AU (2d: " + str(tertiary_companion_orbit_roll_2) + "); Eccentricity: " + str(tertiary_companion_eccentricity_final) + "(3d: " + str(tertiary_companion_eccentricity_roll) + ")"
+		print "	  Separation: " + str(tertiary_companion_orbit_separation) + " (3d-6: " + str(tertiary_companion_orbit_roll_1) + "); Orbital Radius: " + str(tertiary_companion_separation_final) + " AU (2d: " + str(tertiary_companion_orbit_roll_2) + "); Eccentricity: " + str(tertiary_companion_eccentricity_final) + "(3d: " + str(tertiary_companion_eccentricity_roll) + "); Min/Max Separation: " + str(tertiary_companion_separation_min) + "-" + str(tertiary_companion_separation_max) + " AU"
 else :
 	None
